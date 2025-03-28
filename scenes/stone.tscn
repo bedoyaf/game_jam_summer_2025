@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdha4krjwhb2v"]
+
+[ext_resource type="Texture2D" uid="uid://bqeo2av377rp6" path="res://sprites/icon.svg" id="1_24wby"]
+[ext_resource type="Script" path="res://scenes/Stone.gd" id="1_abouv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8g8u6"]
+radius = 24.0208
+
+[node name="Stone" type="Area2D"]
+scale = Vector2(0.511224, 0.511224)
+script = ExtResource("1_abouv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8g8u6")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+scale = Vector2(0.284078, 0.284078)
+texture = ExtResource("1_24wby")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
