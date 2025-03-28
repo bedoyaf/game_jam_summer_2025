@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://l8vnkthweoe3"]
+
+[ext_resource type="PackedScene" uid="uid://cx8qao5awhatt" path="res://scenes/characters_scenes/npc_spawner.tscn" id="1_015pm"]
+[ext_resource type="PackedScene" uid="uid://b4jkcyaden0ul" path="res://scenes/background/parallax.tscn" id="1_la2fx"]
+[ext_resource type="PackedScene" uid="uid://kw28saiikuhh" path="res://scenes/characters_scenes/player.tscn" id="2_eiid2"]
+[ext_resource type="PackedScene" uid="uid://cgwrg6epyh0vy" path="res://scenes/characters_scenes/princess.tscn" id="3_7b0v1"]
+[ext_resource type="PackedScene" uid="uid://b3xyxmngyy6st" path="res://scenes/characters_scenes/priest.tscn" id="4_4ptyd"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rt8bo"]
+
+[node name="main_game_level" type="Node2D"]
+
+[node name="NPC_spawner" parent="." instance=ExtResource("1_015pm")]
+
+[node name="Player" parent="." instance=ExtResource("2_eiid2")]
+position = Vector2(208, 419)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(421, -259)
+
+[node name="Parallax" parent="." instance=ExtResource("1_la2fx")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(433, 482)
+shape = SubResource("WorldBoundaryShape2D_rt8bo")
+
+[node name="Princess" parent="." instance=ExtResource("3_7b0v1")]
+position = Vector2(921, 400)
+script = null
+
+[node name="Priest" parent="." instance=ExtResource("4_4ptyd")]
+visible = false
+position = Vector2(774, 415)
