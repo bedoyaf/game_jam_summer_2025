@@ -13,3 +13,7 @@ config_version=5
 config/name="game_jam_summer_2025"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://sprites/icon.svg"
+
+[autoload]
+
+GameManager="*res://scripts/GameManager.gd"
