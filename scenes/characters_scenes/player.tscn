@@ -80,6 +80,23 @@ modifications/3 = SubResource("SkeletonModification2DTwoBoneIK_x073e")
 modifications/4 = SubResource("SkeletonModification2DTwoBoneIK_ots1l")
 modifications/5 = SubResource("SkeletonModification2DCCDIK_woekg")
 
+[sub_resource type="Animation" id="Animation_blmwe"]
+resource_name = "Kick"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SkeletonContainer/Skeleton2D/Base/LeftLeg:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -1.32121, 0.0]
+}
+
 [sub_resource type="Animation" id="Animation_7grub"]
 length = 4.7
 loop_mode = 1
@@ -212,23 +229,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(-9, -599), Vector2(-9, -650.17), Vector2(-9, -599)]
-}
-
-[sub_resource type="Animation" id="Animation_blmwe"]
-resource_name = "Kick"
-length = 1.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SkeletonContainer/Skeleton2D/Base/LeftLeg:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, -1.32121, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k0xtb"]

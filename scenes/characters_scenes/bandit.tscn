@@ -11,6 +11,21 @@ size = Vector2(138, 335)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xssqv"]
 size = Vector2(138, 334)
 
+[sub_resource type="Animation" id="Animation_32mrc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_7t8aw")]
+}
+
 [sub_resource type="Animation" id="Animation_kvni2"]
 resource_name = "WalkingBandit"
 length = 0.5
@@ -26,21 +41,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [ExtResource("2_7t8aw"), ExtResource("3_u44sl"), ExtResource("2_7t8aw")]
-}
-
-[sub_resource type="Animation" id="Animation_32mrc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visual/Body:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_7t8aw")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jrvd0"]
