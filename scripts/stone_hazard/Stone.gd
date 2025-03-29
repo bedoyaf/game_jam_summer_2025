@@ -4,7 +4,7 @@ var angular_velocity : float = 0.0
 var is_in_viewport : bool = false  
 var gravity2 : float = 980.0
 
-func _process(delta):
+func _physics_process(delta: float) -> void:
 
 	velocity.y += gravity2 * delta
 

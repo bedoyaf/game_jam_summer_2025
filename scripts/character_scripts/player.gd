@@ -1,8 +1,6 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
-
 
 # THE THREE BARS
 var oxygen: float = 100
@@ -25,6 +23,20 @@ var bandit_hit_decrease_wobble: float = 30
 
 @onready var skeleton_container = $SkeletonContainer
 
+@onready var shield = $Shield 
+var last_shield_position: Vector2
+var shield_speed: float = 0.0
+@export var wave_threshold: float = 3000.0  # Minimum movement speed to count as waving
+var center_position: Vector2
+@export var shield_distance: float = 80.0  # Adjustable distance of the shield from the player
+var shield_y_offset: float = -140
+
+func _ready():
+	GameManager.camera = $Camera2D
+	center_position = global_position  
+	center_position.y += shield_y_offset  # Set the player's upper body position as the center
+	last_shield_position = shield.global_position
+
 func _process(delta):
 	#print(reputation)
 	#print(is_praying)
@@ -32,8 +44,7 @@ func _process(delta):
 		reputation = reputation - not_praying_reputation_penalty_per_second * delta
 		
 	handle_input()
-		
-
+	
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -49,8 +60,31 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
+	var mouse_position = get_global_mouse_position()
+	var direction_to_mouse = (mouse_position - center_position).normalized()
 
+	var angle_to_mouse = direction_to_mouse.angle()
+	center_position = global_position
+	center_position.y += shield_y_offset
 
+	# Adjust the shield position relative to the player (use shield_distance and angle_to_mouse)
+	var shield_position = center_position + Vector2(cos(angle_to_mouse), sin(angle_to_mouse)) * shield_distance
+
+	# Add the Y offset to shield position
+	shield_position.y += shield_y_offset
+
+	shield.global_position = shield_position
+
+	shield.rotation = angle_to_mouse + PI / 2
+
+	# Calculate shield movement speed based on position change
+	shield_speed = (shield.global_position - last_shield_position).length() / delta
+	last_shield_position = shield.global_position
+
+	# Scare wasps away if shield is moving fast enough
+	for wasp in get_tree().get_nodes_in_group("wasps"):
+		if shield_speed > wave_threshold and shield.global_position.distance_to(wasp.global_position) < 70:
+			wasp.scare_away()
 
 # player input
 func handle_input():
@@ -58,7 +92,6 @@ func handle_input():
 		is_praying = true
 	else:
 		is_praying = false
-
 
 # NPC interaction functions
 func enter_praying_zone():

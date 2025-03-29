@@ -1,0 +1,227 @@
+[33mcommit aff5d06c73549718b33d76b898e8fef4ec573871[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmartin-m9[m[33m)[m
+Merge: c622dc1 5193398
+Author: martin-18246 <martin.mikestik@gmail.com>
+Date:   Sat Mar 29 14:04:47 2025 +0100
+
+    resolve conflicts with jakub 4
+
+[33mcommit c622dc14f1ddcb8607941c906b34729b5027a920[m[33m ([m[1;31morigin/martin-m9[m[33m)[m
+Author: martin-18246 <martin.mikestik@gmail.com>
+Date:   Sat Mar 29 13:58:55 2025 +0100
+
+    change gradient of line
+
+[33mcommit a517d2e787698532897bd64c1f856cb6efb4d0c3[m
+Merge: b6fdebf 8ba7b3c
+Author: martin-18246 <martin.mikestik@gmail.com>
+Date:   Sat Mar 29 13:40:20 2025 +0100
+
+    merge ui.tscn conflict
+
+[33mcommit 5193398429cfc9fa72c13e4984341cec2de1aec5[m[33m ([m[1;31morigin/jakub4[m[33m)[m
+Author: rolloj <jakubrollo10@gmail.com>
+Date:   Sat Mar 29 13:35:47 2025 +0100
+
+    broken wasps and stones
+
+[33mcommit b6fdebf309f50e6caa453f192366428f024d5396[m
+Author: martin-18246 <martin.mikestik@gmail.com>
+Date:   Sat Mar 29 13:35:20 2025 +0100
+
+    add UI main scene, singleton script for UI
+
+[33mcommit 8ba7b3c84c7823726fd771594d77b4fc52ce787d[m[33m ([m[1;31morigin/Filip3[m[33m)[m
+Author: bedoyaf <filipbedoya64@gmail.com>
+Date:   Sat Mar 29 13:34:07 2025 +0100
+
+    updated bandit visuals, updated player visuals, added kick animation
+
+[33mcommit 355b3ad943bf0ed1d60b421638cd952f13f30bb5[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: martin-18246 <martin.mikestik@gmail.com>
+Date:   Sat Mar 29 11:12:15 2025 +0100
+
+    normalize
+
+[33mcommit d2f626bf04fcd53ae22464fa620caed1cfdfa26c[m
+Merge: 1d29ccf f079d54
+Author: martin-18246 <martin.mikestik@gmail.com>
+Date:   Sat Mar 29 11:02:48 2025 +0100
+
+    resolve conflict with jakub3
+
+[33mcommit 1d29ccf7c547ba91a9c450ad70b72f935fff8669[m
+Merge: b8043e7 751860c
+Author: martin-18246 <martin.mikestik@gmail.com>
+Date:   Sat Mar 29 10:59:49 2025 +0100
+
+    fix conflicts
+
+[33mcommit b8043e7bf9a6443eb75c3782f144243e7ca9ecf2[m
+Author: martin-18246 <martin.mikestik@gmail.com>
+Date:   Sat Mar 29 10:50:21 2025 +0100
+
+    add houses, resize characters
+
+[33mcommit 751860c673243083b71e8c86ab843ed4dd3a55e4[m[33m ([m[1;31morigin/Filip2[m[33m)[m
+Author: bedoyaf <filipbedoya64@gmail.com>
+Date:   Sat Mar 29 10:47:38 2025 +0100
+
+    added timer
+
+[33mcommit 0a5a0b1d4f2458840121297db7a8c375c29364d0[m
+Author: bedoyaf <filipbedoya64@gmail.com>
+Date:   Sat Mar 29 10:40:38 2025 +0100
+
+    animation fixes
+
+[33mcommit f079d546d4875f14eec567c70b2a8ec699e9ec19[m[33m ([m[1;31morigin/jakub3[m[33m)[m
+Author: rolloj <jakubrollo10@gmail.com>
+Date:   Sat Mar 29 10:23:18 2025 +0100
+
+    spawning changes
+
+[33mcommit a642667b3472a6b691a61aea54a4fabe2f43296e[m
+Author: rolloj <jakubrollo10@gmail.com>
+Date:   Sat Mar 29 10:02:55 2025 +0100
+
+    Damage added
+
+[33mcommit 6ba7567aed6fbdd948d793cbfa0f664fdbde2572[m
+Author: bedoyaf <filipbedoya64@gmail.com>
+Date:   Sat Mar 29 09:46:29 2025 +0100
+
+    tweaks
+
+[33mcommit fbbfdd60c63dc12143925fdaf24a17e56502bf30[m[33m ([m[1;31morigin/martin-m6[m[33m)[m
+Author: bedoyaf <filipbedoya64@gmail.com>
+Date:   Sat Mar 29 09:41:52 2025 +0100
+
+    angle fix of wiggle, sotring hit by bandit for Martin
+
+[33mcommit aacca414084796ddacaaf0c612769af2aa630b9a[m
+Author: rolloj <jakubrollo10@gmail.com>
+Date:   Sat Mar 29 03:34:31 2025 +0100
+
+    Wasp and stones
+
+[33mcommit 5cda4d3318558fc9d7ac6b8eb5bf6efc2887a437[m[33m ([m[1;32mmartin-m6[m[33m)[m
+Author: martin-18246 <martin.mikestik@gmail.com>
+Date:   Sat Mar 29 03:10:20 2025 +0100
+
+    merger filip a martin
+
+[33mcommit 86e3c4864efb9b5dc1e178bdd2bc96dd3370e3ab[m
+Author: bedoyaf <filipbedoya64@gmail.com>
+Date:   Sat Mar 29 02:27:37 2025 +0100
+
+    fixed merge problems
+
+[33mcommit 7f985c4b39a2207fdaddcf39cf76cfa4de2d0cba[m[33m ([m[1;31morigin/Filip[m[33m, [m[1;32mmartin-m5[m[33m, [m[1;32mmartin-m4[m[33m, [m[1;32mmartin-m3[m[33m, [m[1;32mmartin-m2[m[33m)[m
+Merge: 338ff59 4d539e9
+Author: bedoyaf <filipbedoya64@gmail.com>
+Date:   Sat Mar 29 02:00:00 2025 +0100
+
+    skibidi merge fixed
+
+[33mcommit 338ff59f1de64d0d5e96bc93a7f39f582ec987c1[m
+Merge: 07f8fd2 b7f2774
+Author: bedoyaf <filipbedoya64@gmail.com>
+Date:   Sat Mar 29 01:57:31 2025 +0100
+
+    Merge remote-tracking branch 'origin/martin-m' into Filip
+
+[33mcommit 07f8fd2a765b7500bb25681e3ee36cf36b25a0fd[m
+Author: bedoyaf <filipbedoya64@gmail.com>
+Date:   Sat Mar 29 01:55:52 2025 +0100
+
+    skibidi
+
+[33mcommit 4d539e903311bb1e61bcf250b2de08ea9874aed1[m[33m ([m[1;31morigin/jakub2[m[33m)[m
+Author: rolloj <jakubrollo10@gmail.com>
+Date:   Sat Mar 29 01:54:52 2025 +0100
+
+    Stone throwing
+
+[33mcommit 88cfde0a2ac24661a528e2340d8725671f358ac3[m
+Author: bedoyaf <filipbedoya64@gmail.com>
+Date:   Sat Mar 29 01:54:23 2025 +0100
+
+    created skeleton animation and UI for balance
+
+[33mcommit b7f2774287b6fa39cc88b4167de00202fcfca3c7[m
+Author: martin-18246 <martin.mikestik@gmail.com>
+Date:   Sat Mar 29 00:47:39 2025 +0100
+
+    fix npc spawner
+
+[33mcommit d61e01c71c011854b3681109ab69cffd1447611b[m
+Author: martin-18246 <martin.mikestik@gmail.com>
+Date:   Sat Mar 29 00:47:10 2025 +0100
+
+    add bandit scene and script
+
+[33mcommit aee444279e13465baeec4fa67aecea19a20508ec[m
+Author: martin-18246 <martin.mikestik@gmail.com>
+Date:   Fri Mar 28 23:44:50 2025 +0100
+
+    add character scenes and fullscreen scenes
+
+[33mcommit 26943662c1d931268e6dfbb686c15082a97daeaa[m
+Author: martin-18246 <martin.mikestik@gmail.com>
+Date:   Fri Mar 28 23:43:40 2025 +0100
+
+    add character scripts and mechanics scripts
+
+[33mcommit 4293bafa0f24b0535a0a10cbb389a31c8ca9be39[m
+Author: rolloj <jakubrollo10@gmail.com>
+Date:   Fri Mar 28 20:56:02 2025 +0100
+
+    i hate git
+
+[33mcommit 3269729493f0f8be97752ad370d0a1c4a4f093ed[m
+Author: martin-18246 <martin.mikestik@gmail.com>
+Date:   Fri Mar 28 20:52:54 2025 +0100
+
+    add parallax background (sprites, testing camera script)
+
+[33mcommit 06868183726d52e2611277b69398530873f5f5f4[m
+Author: rolloj <jakubrollo10@gmail.com>
+Date:   Fri Mar 28 20:07:35 2025 +0100
+
+    Added to global
+
+[33mcommit 684c960bcfa0c21144027579ebc93362d82052c2[m
+Author: rolloj <jakubrollo10@gmail.com>
+Date:   Fri Mar 28 20:04:29 2025 +0100
+
+    again tralalelo
+
+[33mcommit f55810cd3b6bba2310e3ebd2f0079ef81c55d714[m[33m ([m[1;31morigin/jakub1[m[33m)[m
+Author: rolloj <jakubrollo10@gmail.com>
+Date:   Fri Mar 28 20:00:33 2025 +0100
+
+    Add GameManager
+
+[33mcommit b1ecd32afc30e8ed5a62776c202abcde0ec2cda8[m
+Author: martin-18246 <martin.mikestik@gmail.com>
+Date:   Fri Mar 28 16:50:11 2025 +0100
+
+    test commit
+
+[33mcommit 425e82f953210e924fe5346451f9bf92621bb1c5[m
+Author: @bedoyaf <filipbedoya64@gmail.com>
+Date:   Sun Mar 23 18:21:33 2025 +0100
+
+    initial commit2
+
+[33mcommit 3f1509fea5ac1423ee7ef22135ea7c6c21224937[m
+Author: @bedoyaf <filipbedoya64@gmail.com>
+Date:   Sun Mar 23 18:19:02 2025 +0100
+
+    initial commit
+
+[33mcommit 509763cf0c3670169798b78404d9c180071362be[m
+Author: Filip Bedoya <142159376+bedoyaf@users.noreply.github.com>
+Date:   Sun Mar 23 18:11:00 2025 +0100
+
+    Initial commit
