@@ -88,9 +88,5 @@ func get_npc_spawn_point_position():
 	
 func hit_by_bandit():
 	print("I got hit by a bandit!")
-<<<<<<< HEAD
 	wobbling = wobbling - bandit_hit_decrease_wobble
 	
-=======
-	wobbling -= bandit_hit_decrease_wobble
->>>>>>> origin/jakub5

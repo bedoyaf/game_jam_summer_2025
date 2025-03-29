@@ -17,48 +17,6 @@
 [node name="Player" parent="." instance=ExtResource("2_eiid2")]
 position = Vector2(206, 880)
 
-[node name="RightHand" parent="Player/SkeletonContainer/Parts" index="0"]
-position = Vector2(14.1483, -96.9419)
-scale = Vector2(0.999847, 0.999847)
-
-[node name="LeftHand" parent="Player/SkeletonContainer/Parts" index="1"]
-position = Vector2(-116.059, -138.335)
-rotation = 0.175663
-scale = Vector2(0.99988, 0.99988)
-
-[node name="LeftFIst" parent="Player/SkeletonContainer/Parts/LeftHand" index="0"]
-position = Vector2(45.4786, 18.6799)
-rotation = -0.0504383
-scale = Vector2(0.999823, 0.999823)
-
-[node name="LegLeft" parent="Player/SkeletonContainer/Parts" index="2"]
-position = Vector2(-8.99695, -73.9932)
-
-[node name="LegRight" parent="Player/SkeletonContainer/Parts" index="3"]
-position = Vector2(-9.00494, -63.9822)
-
-[node name="Body" parent="Player/SkeletonContainer/Parts" index="4"]
-position = Vector2(-6, -109.635)
-
-[node name="RightArm" parent="Player/SkeletonContainer/Skeleton2D/Base/Body" index="1"]
-scale = Vector2(0.999847, 0.999847)
-
-[node name="LeftArm" parent="Player/SkeletonContainer/Skeleton2D/Base/Body" index="2"]
-position = Vector2(137, -166)
-rotation = 0.0477874
-scale = Vector2(0.999837, 0.999837)
-
-[node name="LeftFist" parent="Player/SkeletonContainer/Skeleton2D/Base/Body/LeftArm" index="1"]
-position = Vector2(132.991, -99.9943)
-rotation = 0.0219897
-scale = Vector2(0.999903, 0.999903)
-
-[node name="LeftFist2" parent="Player/SkeletonContainer/Skeleton2D/Base/Body/LeftArm/LeftFist" index="1"]
-scale = Vector2(1, 1)
-
-[node name="RIghtLeg" parent="Player/SkeletonContainer/Skeleton2D/Base" index="2"]
-scale = Vector2(0.999938, 0.999938)
-
 [node name="Parallax" parent="." instance=ExtResource("1_la2fx")]
 position = Vector2(0, 252)
 
