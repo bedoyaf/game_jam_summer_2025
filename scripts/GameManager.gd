@@ -14,10 +14,12 @@ var oxygen_threshold : float = 0.0
 
 var wasp_scene: PackedScene = load("res://scenes/Jakuboviny/wasp.tscn")
 var wasp_timer: Timer
-@export var wasp_spawn_rate: float = 7.0
+@export var wasp_spawn_rate: float = 5.0
 
 signal game_over
 signal update_ui
+
+var camera: Camera2D
 
 func _ready():
 	wasp_timer = Timer.new()

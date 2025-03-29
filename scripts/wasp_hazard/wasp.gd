@@ -7,6 +7,7 @@ extends Node2D
 @export var frequency: float = 5.0
 @export var infinity_size: float = 130.0
 @export var transition_duration: float = 2.0 
+@export var y_target_offset: float = -220.0  # Add an offset to target the player's head
 
 var player: Node2D
 var fleeing: bool = false
@@ -42,7 +43,8 @@ func _ready():
 		else:
 			start_position = Vector2(get_viewport().size.x + 50, random_y)
 
-	global_position = start_position
+	# Adjust start position based on y_target_offset
+	global_position = start_position + Vector2(0, y_target_offset)
 
 func _process(delta):
 	time += delta
@@ -55,7 +57,7 @@ func _process(delta):
 		# Infinity movement around player
 		var offset_x = cos(time * 2.0) * infinity_size
 		var offset_y = sin(time * 4.0) * infinity_size * 0.5
-		global_position = player.global_position + Vector2(offset_x, offset_y)
+		global_position = player.global_position + Vector2(offset_x, offset_y + y_target_offset)  # Adjusted for the head
 	elif transitioning:
 		# Smooth transition to infinity movement
 		transition_time += delta
@@ -63,7 +65,7 @@ func _process(delta):
 
 		var target_offset_x = cos(time * 2.0) * infinity_size
 		var target_offset_y = sin(time * 4.0) * infinity_size * 0.5
-		var target_position = player.global_position + Vector2(target_offset_x, target_offset_y)
+		var target_position = player.global_position + Vector2(target_offset_x, target_offset_y + y_target_offset)  # Adjusted for the head
 
 		global_position = global_position.lerp(target_position, t)
 
@@ -72,14 +74,14 @@ func _process(delta):
 			arrived = true
 			_start_damage_timer()  # Start dealing damage once wasp arrives
 	else:
-		# Sinusoidal approach towards player
-		var direction = (player.global_position - global_position).normalized()
+		# Sinusoidal approach towards player, adjusted to the target head offset
+		var direction = (player.global_position + Vector2(0, y_target_offset) - global_position).normalized()  # Add y_target_offset here
 		var perpendicular = Vector2(-direction.y, direction.x)
 		var sinus_offset = sin(time * frequency) * amplitude
 
 		global_position += direction * speed * delta + perpendicular * sinus_offset * delta
 
-		if global_position.distance_to(player.global_position) < 10.0:
+		if global_position.distance_to(player.global_position + Vector2(0, y_target_offset)) < 10.0:  # Adjust distance check to account for the offset
 			transitioning = true
 			transition_time = 0.0
 

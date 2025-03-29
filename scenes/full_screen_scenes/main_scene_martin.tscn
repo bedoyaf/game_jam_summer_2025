@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://l8vnkthweoe3"]
+[gd_scene load_steps=9 format=3 uid="uid://l8vnkthweoe3"]
 
 [ext_resource type="PackedScene" uid="uid://cx8qao5awhatt" path="res://scenes/characters_scenes/npc_spawner.tscn" id="1_015pm"]
 [ext_resource type="PackedScene" uid="uid://b4jkcyaden0ul" path="res://scenes/background/parallax.tscn" id="1_la2fx"]
 [ext_resource type="PackedScene" uid="uid://kw28saiikuhh" path="res://scenes/characters_scenes/player.tscn" id="2_eiid2"]
 [ext_resource type="PackedScene" uid="uid://cgwrg6epyh0vy" path="res://scenes/characters_scenes/princess.tscn" id="3_7b0v1"]
 [ext_resource type="PackedScene" uid="uid://b3xyxmngyy6st" path="res://scenes/characters_scenes/priest.tscn" id="4_4ptyd"]
+[ext_resource type="Script" path="res://scripts/stone_hazard/stone_hazard.gd" id="6_twy0p"]
+[ext_resource type="PackedScene" uid="uid://bdha4krjwhb2v" path="res://scenes/Jakuboviny/stone.tscn" id="7_h7gfm"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rt8bo"]
 
@@ -14,6 +16,56 @@
 
 [node name="Player" parent="." instance=ExtResource("2_eiid2")]
 position = Vector2(206, 880)
+
+[node name="RightHand" parent="Player/SkeletonContainer/Parts" index="0"]
+position = Vector2(14.1483, -96.9419)
+scale = Vector2(0.999847, 0.999847)
+
+[node name="LeftHand" parent="Player/SkeletonContainer/Parts" index="1"]
+position = Vector2(-116.059, -138.335)
+rotation = 0.175663
+scale = Vector2(0.99988, 0.99988)
+
+[node name="LeftFIst" parent="Player/SkeletonContainer/Parts/LeftHand" index="0"]
+position = Vector2(45.4786, 18.6799)
+rotation = -0.0504383
+scale = Vector2(0.999823, 0.999823)
+
+[node name="LegLeft" parent="Player/SkeletonContainer/Parts" index="2"]
+position = Vector2(-8.99695, -73.9932)
+
+[node name="LegRight" parent="Player/SkeletonContainer/Parts" index="3"]
+position = Vector2(-9.00494, -63.9822)
+
+[node name="Body" parent="Player/SkeletonContainer/Parts" index="4"]
+position = Vector2(-6, -109.635)
+
+[node name="RightArm" parent="Player/SkeletonContainer/Skeleton2D/Base/Body" index="1"]
+scale = Vector2(0.999847, 0.999847)
+
+[node name="RightArm2" parent="Player/SkeletonContainer/Skeleton2D/Base/Body/RightArm" index="1"]
+rotation = -3.33786e-06
+
+[node name="LeftArm" parent="Player/SkeletonContainer/Skeleton2D/Base/Body" index="2"]
+position = Vector2(137, -166)
+rotation = 0.0477874
+scale = Vector2(0.999837, 0.999837)
+
+[node name="LeftFist" parent="Player/SkeletonContainer/Skeleton2D/Base/Body/LeftArm" index="1"]
+position = Vector2(132.991, -99.9943)
+rotation = 0.0219897
+scale = Vector2(0.999903, 0.999903)
+
+[node name="LeftFist2" parent="Player/SkeletonContainer/Skeleton2D/Base/Body/LeftArm/LeftFist" index="1"]
+rotation = -0.103309
+scale = Vector2(1, 1)
+
+[node name="LeftLeg" parent="Player/SkeletonContainer/Skeleton2D/Base/LeftLeg" index="1"]
+rotation = 4.76837e-07
+scale = Vector2(0.99997, 0.99997)
+
+[node name="RIghtLeg2" parent="Player/SkeletonContainer/Skeleton2D/Base/RIghtLeg" index="1"]
+rotation = -1.19209e-07
 
 [node name="Parallax" parent="." instance=ExtResource("1_la2fx")]
 position = Vector2(0, 252)
@@ -36,3 +88,10 @@ position = Vector2(1415, 882)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 120.0
 one_shot = true
+
+[node name="Thrower" type="Node2D" parent="." node_paths=PackedStringArray("target_node")]
+script = ExtResource("6_twy0p")
+target_node = NodePath("../Player")
+stone_scene = ExtResource("7_h7gfm")
+
+[editable path="Player"]
