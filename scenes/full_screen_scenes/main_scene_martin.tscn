@@ -33,8 +33,4 @@ position = Vector2(921, 400)
 script = null
 
 [node name="Priest" parent="." instance=ExtResource("4_4ptyd")]
-visible = false
 position = Vector2(774, 415)
-
-[node name="Priest2" parent="." instance=ExtResource("4_4ptyd")]
-position = Vector2(599, 299)

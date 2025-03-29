@@ -14,16 +14,17 @@ func _ready():
 
 
 func play_walk_animation():
-	state_machine.travel("Walking")  # Switch to walking animation
+	if state_machine.get_current_node() != "Walking":
+		state_machine.travel("Walking")  # Switch to walking animation
 
 func play_stand_animation():
-	state_machine.travel("standing")  # Switch to standing animation
+	if state_machine.get_current_node() != "standing":
+		state_machine.travel("standing")  # Switch to standing animation
 
 func _process(delta):
 	if not balanceUI:
 		return
 		# Use the amplitude from the UI script to control rotation
 	var wiggle_angle = balanceUI.currentSadam*10
-	print(wiggle_angle)
 	# Clamp the angle and convert to radians
 	self.rotation = deg_to_rad(clamp(wiggle_angle, -max_rotation*balanceUI.balance, max_rotation*balanceUI.balance))

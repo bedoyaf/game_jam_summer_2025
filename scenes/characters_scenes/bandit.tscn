@@ -22,7 +22,6 @@ collision_mask = 12
 script = ExtResource("1_otnca")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, 0)
 scale = Vector2(13.76, 100)
 texture = SubResource("GradientTexture1D_yu651")
 

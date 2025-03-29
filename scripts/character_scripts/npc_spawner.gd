@@ -2,6 +2,7 @@ extends Node
 
 const PRIEST_instance = preload("res://scenes/characters_scenes/priest.tscn")
 const BANDIT_instance = preload("res://scenes/characters_scenes/bandit.tscn")
+
 @onready var npc_spawn_timer = $NPC_spawn_timer
 
 var array_npc_instances = [PRIEST_instance, BANDIT_instance]
@@ -34,9 +35,13 @@ func spawn_npc():
 	
 	#var instance = PRIEST_instance.instantiate()
 	var instance = array_npc_instances[random_npc_index].instantiate()
+	print(instance)
 	instance.position = spawn_position
+	print("SPWN POS")
+	print(spawn_position)
 	root.add_child(instance)
 	is_npc_spawned = true
+	print("npc_spawned")
 	
 	
 
@@ -49,3 +54,4 @@ func notify_npc_left_screen():
 	print("spawner detected npc exiting scene")
 	is_npc_spawned = false
 	spawn_npc()
+	
