@@ -1,18 +1,31 @@
+
 [gd_scene load_steps=5 format=3 uid="uid://h05ha11k7ss3"]
+
 
 [ext_resource type="Script" path="res://scripts/UI/BalancIcon.gd" id="1_h8k2e"]
 [ext_resource type="Script" path="res://scenes/UI/ui_manager.gd" id="1_xphkx"]
 [ext_resource type="Texture2D" uid="uid://b43ws14dacq4c" path="res://sprites/UI/Balanc icon placeholder.png" id="2_k2dyt"]
+
 [ext_resource type="PackedScene" uid="uid://d32khhpccmkpr" path="res://scenes/ui_scenes/game_over.tscn" id="3_btee5"]
+[ext_resource type="Texture2D" uid="uid://bbaqdhb4cwd17" path="res://sprites/UI/Balanc background placeholder.png" id="2_pq48k"]
+
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_xphkx")
 
 [node name="Balance" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -579.0
+offset_top = -644.0
+offset_right = -539.0
+offset_bottom = -604.0
+grow_horizontal = 2
+grow_vertical = 0
 script = ExtResource("1_h8k2e")
 
 [node name="Background" type="TextureRect" parent="Balance"]
@@ -21,6 +34,7 @@ offset_left = 193.0
 offset_top = 550.0
 offset_right = 971.0
 offset_bottom = 608.0
+texture = ExtResource("2_pq48k")
 expand_mode = 1
 
 [node name="Icon" type="TextureRect" parent="Balance"]

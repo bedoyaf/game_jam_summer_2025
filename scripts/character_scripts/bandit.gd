@@ -3,6 +3,10 @@ extends CharacterBody2D
 
 var SPEED: float = 300.0
 
+@onready var animationPlayer = $AnimationPlayer
+
+func _ready() -> void:
+	animationPlayer.play("WalkingBandit")
 
 func _physics_process(delta):
 	if not is_on_floor():
