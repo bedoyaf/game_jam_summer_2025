@@ -18,18 +18,18 @@
 position = Vector2(206, 880)
 
 [node name="RightHand" parent="Player/SkeletonContainer/Parts" index="0"]
-position = Vector2(14.1487, -104.17)
+position = Vector2(14.1488, -65.3044)
 scale = Vector2(0.999849, 0.999849)
 
 [node name="LeftHand" parent="Player/SkeletonContainer/Parts" index="1"]
-position = Vector2(-235.562, -202.09)
-rotation = 0.364196
-scale = Vector2(0.999843, 0.999843)
+position = Vector2(-104.632, -102.703)
+rotation = 0.158423
+scale = Vector2(0.999839, 0.999839)
 
 [node name="LeftFIst" parent="Player/SkeletonContainer/Parts/LeftHand" index="0"]
-position = Vector2(219.891, 44.208)
-rotation = -0.261493
-scale = Vector2(0.999893, 0.999893)
+position = Vector2(107.709, 32.1284)
+rotation = -0.126466
+scale = Vector2(0.999898, 0.999898)
 
 [node name="LegLeft" parent="Player/SkeletonContainer/Parts" index="2"]
 position = Vector2(-8.99548, -73.99)
@@ -39,26 +39,38 @@ position = Vector2(-9.00525, -63.9814)
 scale = Vector2(0.999938, 0.999938)
 
 [node name="Body" parent="Player/SkeletonContainer/Parts" index="4"]
-position = Vector2(-6, -116.864)
+position = Vector2(-6, -77.999)
 
 [node name="RightArm" parent="Player/SkeletonContainer/Skeleton2D/Base/Body" index="1"]
 scale = Vector2(0.999849, 0.999849)
 
+[node name="RightArm2" parent="Player/SkeletonContainer/Skeleton2D/Base/Body/RightArm" index="1"]
+rotation = 2.04504
+
 [node name="LeftArm" parent="Player/SkeletonContainer/Skeleton2D/Base/Body" index="2"]
 position = Vector2(137, -166)
-rotation = 0.0477874
+rotation = 0.255685
 scale = Vector2(0.999837, 0.999837)
 
 [node name="LeftFist" parent="Player/SkeletonContainer/Skeleton2D/Base/Body/LeftArm" index="1"]
 position = Vector2(132.991, -99.9943)
-rotation = 0.0219897
+rotation = -0.0686201
 scale = Vector2(0.999903, 0.999903)
 
 [node name="LeftFist2" parent="Player/SkeletonContainer/Skeleton2D/Base/Body/LeftArm/LeftFist" index="1"]
+rotation = 1.20923
 scale = Vector2(1, 1)
+
+[node name="LeftLeg" parent="Player/SkeletonContainer/Skeleton2D/Base/LeftLeg" index="1"]
+rotation = 1.59748
+scale = Vector2(0.99997, 0.99997)
 
 [node name="RIghtLeg" parent="Player/SkeletonContainer/Skeleton2D/Base" index="2"]
 scale = Vector2(0.999938, 0.999938)
+
+[node name="RIghtLeg2" parent="Player/SkeletonContainer/Skeleton2D/Base/RIghtLeg" index="1"]
+rotation = 1.69153
+scale = Vector2(1, 1)
 
 [node name="Parallax" parent="." instance=ExtResource("1_la2fx")]
 position = Vector2(0, 252)

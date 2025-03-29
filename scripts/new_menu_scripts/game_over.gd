@@ -29,6 +29,7 @@ func _on_play_button_pressed():
 	#get_tree().reload_current_scene()
 	UI.change_game_state(UI.GameState.Normal)
 	GameManager.reset_stats()
+	UI.kill_all_wasps()
 	get_tree().call_deferred("reload_current_scene")
 
 

@@ -14,7 +14,7 @@ var oxygen_threshold : float = 0.0
 
 var wasp_scene: PackedScene = load("res://scenes/Jakuboviny/wasp.tscn")
 var wasp_timer: Timer
-@export var wasp_spawn_rate: float = 5.0
+@export var wasp_spawn_rate: float = 1.0
 
 enum DeathReason {Oxygen, Balance, Rejection}
 
@@ -22,6 +22,7 @@ signal game_over
 signal update_ui
 
 var camera: Camera2D
+var is_in_goal: bool = false
 
 func _ready():
 	wasp_timer = Timer.new()
@@ -37,6 +38,8 @@ func _on_WaspTimer_timeout():
 		add_child(wasp)
 
 func adjust_balance(amount : float):
+	if is_in_goal:
+		return
 	balance += amount
 	if balance>maxBalance:
 		balance = maxBalance
@@ -47,6 +50,8 @@ func adjust_balance(amount : float):
 	#emit_signal("update_ui", "balance", balance)
 
 func adjust_charisma(amount : float):
+	if is_in_goal:
+		return
 	charisma += amount
 	if charisma > maxCharisma:
 		charisma = maxCharisma
@@ -55,6 +60,8 @@ func adjust_charisma(amount : float):
 	#emit_signal("update_ui", "charisma", charisma)
 
 func adjust_oxygen(amount : float):
+	if is_in_goal:
+		return
 	oxygen += amount
 	if oxygen > maxOxygen:
 		oxygen = maxOxygen

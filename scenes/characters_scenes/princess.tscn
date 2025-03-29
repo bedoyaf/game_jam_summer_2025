@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgwrg6epyh0vy"]
+[gd_scene load_steps=5 format=3 uid="uid://cgwrg6epyh0vy"]
 
 [ext_resource type="Script" path="res://scripts/character_scripts/princess.gd" id="1_d7wvr"]
 [ext_resource type="Texture2D" uid="uid://c1ye1csvw87lu" path="res://sprites/npc/princess/princess.png" id="2_jeq08"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6yp7"]
 size = Vector2(134, 336)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dojck"]
+radius = 630.229
 
 [node name="Princess" type="CharacterBody2D"]
 collision_layer = 2
@@ -26,3 +29,10 @@ offset_right = 43.0
 offset_bottom = -170.0
 text = "princess
 "
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_dojck")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

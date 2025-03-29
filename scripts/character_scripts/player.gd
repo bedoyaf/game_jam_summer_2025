@@ -28,6 +28,7 @@ var center_position: Vector2
 @export var shield_distance: float = 80.0  # Adjustable distance of the shield from the player
 var shield_y_offset: float = -140
 
+
 func _ready():
 	GameManager.camera = $Camera2D
 	center_position = global_position  
@@ -55,7 +56,8 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		skeleton_container.play_stand_animation()
 
-	move_and_slide()
+	if !GameManager.is_in_goal:
+		move_and_slide()
 	
 	var mouse_position = get_global_mouse_position()
 	var direction_to_mouse = (mouse_position - center_position).normalized()

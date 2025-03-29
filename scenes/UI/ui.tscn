@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://h05ha11k7ss3"]
+[gd_scene load_steps=8 format=3 uid="uid://h05ha11k7ss3"]
 
 [ext_resource type="Script" path="res://scripts/UI/BalancIcon.gd" id="1_h8k2e"]
 [ext_resource type="Script" path="res://scenes/UI/ui_manager.gd" id="1_xphkx"]
 [ext_resource type="Texture2D" uid="uid://b43ws14dacq4c" path="res://sprites/UI/Balanc icon placeholder.png" id="2_k2dyt"]
 [ext_resource type="PackedScene" uid="uid://d32khhpccmkpr" path="res://scenes/ui_scenes/game_over.tscn" id="3_btee5"]
+[ext_resource type="PackedScene" uid="uid://ene0y7ae6387" path="res://scenes/dialogue_scenes/dialogue_2.tscn" id="5_yalu0"]
 
 [sub_resource type="Gradient" id="Gradient_e0gbp"]
 offsets = PackedFloat32Array(0, 0.534247, 1)
@@ -53,3 +54,10 @@ offset_left = -26.0
 offset_top = 67.0
 offset_right = -26.0
 offset_bottom = 67.0
+
+[node name="PrincessDialogue" parent="." instance=ExtResource("5_yalu0")]
+visible = false
+offset_left = -22.0
+offset_top = -28.0
+offset_right = -22.0
+offset_bottom = -28.0
