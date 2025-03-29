@@ -3,11 +3,11 @@ extends Node2D
 @export var target_node : Node2D
 @export var stone_scene : PackedScene  
 
-var stone_spawn_interval : float = 2.0  
-var last_spawn_time : float = 0.0  
+@export var stone_spawn_interval : float = 10.0  
+var last_spawn_time : float = 5.0  
 var gravity : float = 980.0
 var arc_height : float = 200.0
-var avoid_range : float = 300.0 
+var avoid_range : float = 220.0 
 #var debug_path : Array = []  
 
 func _ready():
@@ -28,21 +28,21 @@ func spawn_stone():
 	var target_position = target_node.global_position
 
 	var start_position : Vector2
-	if randf() > 0.8:  
+	if randf() > 0.99:  
 		var random_x = randf_range(0, get_viewport().size.x)
-
+		var arc_height : float = 200.0
 		while abs(random_x - target_position.x) < avoid_range:
 			random_x = randf_range(0, get_viewport().size.x)
 		start_position = Vector2(random_x, -50)  
 	else:
-		var random_y = randf_range(0, get_viewport().size.y)
+		var random_y = randf_range(120, get_viewport().size.y)
 		if randf() > 0.5:
 			start_position = Vector2(-50, random_y)  
 		else:
 			start_position = Vector2(get_viewport().size.x + 50, random_y)  
 
 	start_position = to_global(start_position)
-
+	print(start_position)
 	var velocity = calculate_arc_velocity(start_position, target_position, arc_height)
 	#predict_trajectory(start_position, velocity)  
 

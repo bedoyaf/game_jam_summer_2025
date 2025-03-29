@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bknga7ovxud57"]
 
-[ext_resource type="Script" path="res://scripts/stone_hazard/stone_hazard.gd" id="1_p64x5"]
-[ext_resource type="PackedScene" uid="uid://bdha4krjwhb2v" path="res://scenes/Jakuboviny/stone.tscn" id="2_doyo4"]
-[ext_resource type="Texture2D" uid="uid://bqeo2av377rp6" path="res://sprites/icon.svg" id="3_nqjj1"]
+[ext_resource type="Texture2D" uid="uid://bqeo2av377rp6" path="res://sprites/icon.svg" id="1_bwvux"]
+[ext_resource type="Script" path="res://scripts/stone_hazard/stone_hazard.gd" id="2_plok4"]
+[ext_resource type="PackedScene" uid="uid://bdha4krjwhb2v" path="res://scenes/Jakuboviny/stone.tscn" id="3_6n5aw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e0h3f"]
 friction = 0.0
@@ -28,15 +28,15 @@ scale = Vector2(1.99911, 1)
 shape = SubResource("SegmentShape2D_aj6sq")
 debug_color = Color(0.608353, 0.531003, 0.277906, 0.42)
 
+[node name="Target" type="Sprite2D" parent="."]
+position = Vector2(582, 330)
+texture = ExtResource("1_bwvux")
+
 [node name="Thrower" type="Area2D" parent="." node_paths=PackedStringArray("target_node")]
-script = ExtResource("1_p64x5")
-target_node = NodePath("Target")
-stone_scene = ExtResource("2_doyo4")
+script = ExtResource("2_plok4")
+target_node = NodePath("../Target")
+stone_scene = ExtResource("3_6n5aw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thrower"]
 position = Vector2(583, 328)
 shape = SubResource("RectangleShape2D_d8vvr")
-
-[node name="Target" type="Sprite2D" parent="Thrower"]
-position = Vector2(582, 330)
-texture = ExtResource("3_nqjj1")

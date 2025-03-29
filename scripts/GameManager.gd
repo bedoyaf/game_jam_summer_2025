@@ -12,8 +12,25 @@ var maxOxygen : float = 100.0
 var balance_threshold : float = 0.0
 var oxygen_threshold : float = 0.0
 
+var wasp_scene: PackedScene = load("res://scenes/Jakuboviny/wasp.tscn")
+var wasp_timer: Timer
+@export var wasp_spawn_rate: float = 7.0
+
 signal game_over
 signal update_ui
+
+func _ready():
+	wasp_timer = Timer.new()
+	wasp_timer.wait_time = wasp_spawn_rate
+	wasp_timer.autostart = true
+	wasp_timer.timeout.connect(_on_WaspTimer_timeout)
+	add_child(wasp_timer)
+
+	
+func _on_WaspTimer_timeout():
+	if randf() < 0.5:
+		var wasp = wasp_scene.instantiate()
+		add_child(wasp)
 
 func adjust_balance(amount : float):
 	balance += amount
