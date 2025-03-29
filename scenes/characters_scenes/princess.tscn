@@ -1,13 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgwrg6epyh0vy"]
+[gd_scene load_steps=4 format=3 uid="uid://cgwrg6epyh0vy"]
 
 [ext_resource type="Script" path="res://scripts/character_scripts/princess.gd" id="1_d7wvr"]
-
-[sub_resource type="Gradient" id="Gradient_wpq6u"]
-colors = PackedColorArray(1, 0.521569, 1, 1, 0.963161, 0.442295, 0.464628, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_yu651"]
-gradient = SubResource("Gradient_wpq6u")
-width = 3
+[ext_resource type="Texture2D" uid="uid://c1ye1csvw87lu" path="res://sprites/npc/princess/princess.png" id="2_jeq08"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6yp7"]
 size = Vector2(134, 336)
@@ -18,9 +12,9 @@ collision_mask = 12
 script = ExtResource("1_d7wvr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, 0)
-scale = Vector2(46.015, 334.411)
-texture = SubResource("GradientTexture1D_yu651")
+position = Vector2(-138, -128)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("2_jeq08")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_c6yp7")

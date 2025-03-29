@@ -2,10 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
-# THE THREE BARS
-var oxygen: float = 100
-var reputation: float = 100
-var wobbling: float = 100
+
 
 @onready var npc_spawn_point = $NPC_spawn_point
 
@@ -38,10 +35,10 @@ func _ready():
 	last_shield_position = shield.global_position
 
 func _process(delta):
-	#print(reputation)
-	#print(is_praying)
+	#print(GameManager.oxygen)
+	#GameManager.adjust_balance(-0.01)
 	if is_in_praying_zone and !is_praying:
-		reputation = reputation - not_praying_reputation_penalty_per_second * delta
+		GameManager.adjust_charisma(-not_praying_reputation_penalty_per_second * delta)
 		
 	handle_input()
 	
@@ -104,5 +101,4 @@ func get_npc_spawn_point_position():
 	return position + npc_spawn_point.position
 	
 func hit_by_bandit():
-	print("I got hit by a bandit!")
-	wobbling = wobbling - bandit_hit_decrease_wobble
+	GameManager.adjust_balance(-bandit_hit_decrease_wobble)

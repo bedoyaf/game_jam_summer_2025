@@ -50,6 +50,6 @@ expand_mode = 1
 
 [node name="GameOver" parent="." instance=ExtResource("3_btee5")]
 offset_left = -26.0
-offset_top = 67.0
+offset_top = -189.0
 offset_right = -26.0
-offset_bottom = 67.0
+offset_bottom = -189.0

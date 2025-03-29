@@ -4,11 +4,12 @@ enum GameState { MainMenu, Normal, GameOver }
 @onready var balance = $Balance
 @onready var game_over = $GameOver
 
+
 var current_game_state: GameState = GameState.MainMenu
 
+var death_reason: GameManager.DeathReason
 
 func _process(delta):
-	print(current_game_state)
 	if current_game_state == GameState.MainMenu:
 		balance.visible = false
 		game_over.visible = false
@@ -21,4 +22,14 @@ func _process(delta):
 
 
 func change_game_state(game_state):
+	print(game_state)
 	current_game_state = game_state
+	
+	if current_game_state == GameState.GameOver:
+		game_over.change_death_reason_label(death_reason)
+		
+			
+	
+func give_death_reason(reason: GameManager.DeathReason):
+	death_reason = reason
+	

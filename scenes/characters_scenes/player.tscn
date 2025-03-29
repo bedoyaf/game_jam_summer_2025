@@ -1,5 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://kw28saiikuhh"]
-
+[gd_scene load_steps=38 format=3 uid="uid://kw28saiikuhh"]
 
 [ext_resource type="Script" path="res://scripts/character_scripts/player.gd" id="1_25jx3"]
 [ext_resource type="Script" path="res://scripts/Player/PlayerAnimationController.gd" id="2_6nhvu"]
@@ -8,12 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://vwwxjd2e1yj0" path="res://sprites/Player/Skeleton/Done/PlayerLeftFist.png" id="5_okhhr"]
 [ext_resource type="Texture2D" uid="uid://b04oc8yct5nx6" path="res://sprites/Player/Skeleton/Done/PlayerLeftLeg.png" id="6_n1ubb"]
 [ext_resource type="Texture2D" uid="uid://vifv4hl5d2ih" path="res://sprites/Player/Skeleton/Done/PlayerRightLeg.png" id="7_wr2ba"]
-
-
 [ext_resource type="Texture2D" uid="uid://f3kc27lb3lmi" path="res://sprites/Player/Skeleton/PlayerBodyNormal2.png" id="8_a3h1g"]
-[ext_resource type="Texture2D" uid="uid://dtw375kqupb7x" path="res://sprites/Player/Skeleton/Done/PlayerBodyNormal.png" id="8_2yntg"]
 [ext_resource type="Texture2D" uid="uid://bqeo2av377rp6" path="res://sprites/icon.svg" id="10_tthxl"]
-
 
 [sub_resource type="Gradient" id="Gradient_wpq6u"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -340,41 +335,35 @@ wiglableObject = NodePath("Skeleton2D/Base/Body")
 position = Vector2(-3, 7)
 
 [node name="RightHand" type="Sprite2D" parent="SkeletonContainer/Parts"]
-
-position = Vector2(75.3506, -103.62)
-rotation = -0.104425
-scale = Vector2(0.999852, 0.999852)
+position = Vector2(14.1492, -109.614)
+scale = Vector2(0.999851, 0.999851)
 texture = ExtResource("3_mico4")
 
 [node name="LeftHand" type="Sprite2D" parent="SkeletonContainer/Parts"]
-position = Vector2(-161.099, -134.954)
-rotation = 0.244788
-scale = Vector2(0.999892, 0.999892)
+position = Vector2(-266.661, -227.16)
+rotation = 0.416523
+scale = Vector2(0.999871, 0.999871)
 texture = ExtResource("4_10q1g")
 
 [node name="LeftFIst" type="Sprite2D" parent="SkeletonContainer/Parts/LeftHand"]
-position = Vector2(167.392, 42.6868)
-rotation = -0.197799
-scale = Vector2(0.999841, 0.999841)
-
+position = Vector2(264.83, 45.902)
+rotation = -0.314586
+scale = Vector2(0.999838, 0.999838)
 texture = ExtResource("5_okhhr")
 
 [node name="LegLeft" type="Sprite2D" parent="SkeletonContainer/Parts"]
-position = Vector2(64.1741, -98.3833)
-rotation = 0.220039
+position = Vector2(-8.99545, -73.9901)
 scale = Vector2(0.999969, 0.999969)
 texture = ExtResource("6_n1ubb")
 
 [node name="LegRight" type="Sprite2D" parent="SkeletonContainer/Parts"]
-position = Vector2(-95.4638, -75.5838)
-rotation = -0.282709
+position = Vector2(-9.00521, -63.9815)
 scale = Vector2(0.999938, 0.999938)
 texture = ExtResource("7_wr2ba")
 
 [node name="Body" type="Sprite2D" parent="SkeletonContainer/Parts"]
-position = Vector2(-6, -88.0172)
+position = Vector2(-6, -122.309)
 texture = ExtResource("8_a3h1g")
-
 
 [node name="Skeleton2D" type="Skeleton2D" parent="SkeletonContainer"]
 position = Vector2(-5, -9)
@@ -394,9 +383,7 @@ remote_path = NodePath("../../../../Parts/Body")
 
 [node name="RightArm" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base/Body"]
 position = Vector2(-212, -64)
-rotation = -0.104425
-scale = Vector2(0.999852, 0.999852)
-
+scale = Vector2(0.999851, 0.999851)
 rest = Transform2D(0.997782, 0.0657363, -0.0657363, 0.997782, -212, -64)
 metadata/_local_pose_override_enabled_ = true
 
@@ -459,7 +446,6 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="RIghtLeg" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base"]
 position = Vector2(-88, 232)
-rotation = -0.282709
 scale = Vector2(0.999938, 0.999938)
 rest = Transform2D(0.999827, -0.0110555, 0.0110555, 0.999827, -88, 232)
 metadata/_local_pose_override_enabled_ = true

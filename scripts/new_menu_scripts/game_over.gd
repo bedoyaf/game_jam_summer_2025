@@ -6,6 +6,7 @@ extends Control
 @onready var sprite_b_3 = $VBoxContainer/QuitButton/SpriteB3
 
 
+@onready var label_death_reason = $VBoxContainer2/LabelDeathReason
 
 
 
@@ -26,7 +27,16 @@ func _ready():
 
 func _on_play_button_pressed():
 	#get_tree().reload_current_scene()
+	UI.change_game_state(UI.GameState.Normal)
+	GameManager.reset_stats()
 	get_tree().call_deferred("reload_current_scene")
+
+
+func change_death_reason_label(reason: GameManager.DeathReason):
+	if reason == GameManager.DeathReason.Oxygen:
+		label_death_reason.text = "lack of oxygen"
+	elif reason == GameManager.DeathReason.Balance:
+		label_death_reason.text = "loss of balance"
 
 
 
@@ -43,7 +53,7 @@ func _on_mouse_entered_play():
 	var tween = create_tween()
 	tween.tween_property(sprite_b_1, "self_modulate:a", 1, tween_length)
 	#sprite_b_1.self_modulate.a = 1
-	print("Mouse is hovering over the button")
+
 	
 func _on_mouse_exited_play():
 	var tween = create_tween()
@@ -53,7 +63,7 @@ func _on_mouse_exited_play():
 func _on_mouse_entered_quit():
 	var tween = create_tween()
 	tween.tween_property(sprite_b_3, "self_modulate:a", 1, tween_length)
-	print("Mouse is hovering over the button")
+
 	
 func _on_mouse_exited_quit():
 	var tween = create_tween()

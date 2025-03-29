@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://byr6pwycsj8j3"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_503vf"]
+[gd_scene format=3 uid="uid://byr6pwycsj8j3"]
 
 [node name="Dialogue" type="CanvasLayer"]
 scale = Vector2(1.86617, 4.1678)
@@ -14,7 +12,3 @@ anchor_bottom = 1.0
 offset_top = -80.0
 grow_horizontal = 2
 grow_vertical = 0
-
-[node name="Panel" type="Panel" parent="MarginContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_503vf")

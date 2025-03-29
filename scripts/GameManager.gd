@@ -16,6 +16,8 @@ var wasp_scene: PackedScene = load("res://scenes/Jakuboviny/wasp.tscn")
 var wasp_timer: Timer
 @export var wasp_spawn_rate: float = 5.0
 
+enum DeathReason {Oxygen, Balance, Rejection}
+
 signal game_over
 signal update_ui
 
@@ -40,8 +42,8 @@ func adjust_balance(amount : float):
 		balance = maxBalance
 	elif balance <0:
 		balance = 0
-	#if balance <= balance_threshold:
-		#_trigger_game_over("Rovnováha ztracena!")
+	if balance <= balance_threshold:
+		_trigger_game_over(DeathReason.Balance)
 	#emit_signal("update_ui", "balance", balance)
 
 func adjust_charisma(amount : float):
@@ -58,13 +60,14 @@ func adjust_oxygen(amount : float):
 		oxygen = maxOxygen
 	elif oxygen <0:
 		oxygen = 0
-	#if oxygen <= oxygen_threshold:
-	#    _trigger_game_over("Kyslík vyčerpán!")
+	if oxygen <= oxygen_threshold:
+		_trigger_game_over(DeathReason.Oxygen)
 	#emit_signal("update_ui", "oxygen", oxygen)
 
-func _trigger_game_over(reason : String):
-	print("Game Over: " + reason)
-	#emit_signal("game_over", reason)
+func _trigger_game_over(reason : DeathReason):
+	UI.give_death_reason(reason)
+	UI.change_game_state(UI.GameState.GameOver)
+	
 
 func reset_stats():
 	balance = maxBalance
