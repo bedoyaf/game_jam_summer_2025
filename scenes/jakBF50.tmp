@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://bknga7ovxud57"]
+
+[ext_resource type="Script" path="res://scripts/stone_hazard.gd" id="1_ip87c"]
+[ext_resource type="Texture2D" uid="uid://bqeo2av377rp6" path="res://sprites/icon.svg" id="1_x65by"]
+[ext_resource type="PackedScene" uid="uid://bdha4krjwhb2v" path="res://scenes/stone.tscn" id="2_r5674"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e0h3f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fp1ac"]
+size = Vector2(286, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8vvr"]
+size = Vector2(108, 108)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(593, 225)
+rotation = 0.241472
+physics_material_override = SubResource("PhysicsMaterial_e0h3f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_fp1ac")
+
+[node name="Thrower" type="Area2D" parent="." node_paths=PackedStringArray("target_node")]
+script = ExtResource("1_ip87c")
+target_node = NodePath("Target")
+stone_scene = ExtResource("2_r5674")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Thrower"]
+position = Vector2(583, 328)
+shape = SubResource("RectangleShape2D_d8vvr")
+
+[node name="Target" type="Sprite2D" parent="Thrower"]
+position = Vector2(582, 330)
+texture = ExtResource("1_x65by")
