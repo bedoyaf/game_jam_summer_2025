@@ -18,6 +18,7 @@ func _ready():
 	center_x = Icon.position.x  # Store initial center position
 
 func _process(delta):
+	balance = GameManager.balance/ GameManager.maxBalance
 	time_elapsed += delta
 	var amplitude = base_amplitude + (max_amplitude * balance)  # Scale oscillation by balance
 	currentSadam = sin(time_elapsed * frequency)

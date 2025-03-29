@@ -1,6 +1,8 @@
 extends Node
 
 var balance : float = 100.0
+var maxBalance : float = 100.0
+
 var charisma : float = 50.0
 var oxygen : float = 100.0
 
@@ -12,6 +14,10 @@ signal update_ui
 
 func adjust_balance(amount : float):
 	balance += amount
+	if balance>maxBalance:
+		balance = maxBalance
+	elif balance <0:
+		balance = 0
 	#if balance <= balance_threshold:
 		#_trigger_game_over("Rovnováha ztracena!")
 	#emit_signal("update_ui", "balance", balance)
