@@ -14,7 +14,7 @@ width = 3
 size = Vector2(138, 334)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3sheb"]
-radius = 453.319
+radius = 794.305
 
 [node name="Priest" type="CharacterBody2D"]
 collision_layer = 2

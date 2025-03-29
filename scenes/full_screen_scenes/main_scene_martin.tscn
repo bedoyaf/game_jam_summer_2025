@@ -15,10 +15,6 @@
 [node name="Player" parent="." instance=ExtResource("2_eiid2")]
 position = Vector2(206, 880)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(459, -234)
-
-
 [node name="Parallax" parent="." instance=ExtResource("1_la2fx")]
 position = Vector2(0, 252)
 
@@ -32,14 +28,11 @@ position = Vector2(359, 707)
 shape = SubResource("WorldBoundaryShape2D_rt8bo")
 
 [node name="Priest" parent="." instance=ExtResource("4_4ptyd")]
-
 position = Vector2(862, 914)
 
 [node name="Princess" parent="." instance=ExtResource("3_7b0v1")]
 position = Vector2(1415, 882)
 
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 120.0
 one_shot = true
-
