@@ -15,7 +15,7 @@
 [node name="Player" parent="." instance=ExtResource("2_eiid2")]
 position = Vector2(198, 425)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D2" type="Camera2D" parent="Player"]
 position = Vector2(421, -259)
 
 [node name="Parallax" parent="." instance=ExtResource("1_la2fx")]
@@ -34,3 +34,7 @@ script = null
 
 [node name="Priest" parent="." instance=ExtResource("4_4ptyd")]
 position = Vector2(774, 415)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true

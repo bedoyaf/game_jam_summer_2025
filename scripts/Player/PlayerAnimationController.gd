@@ -8,6 +8,7 @@ var balanceUI
 
 @export var wiglableObject : Node2D 
 
+
 func _ready():
 	animation_tree.active = true
 	play_walk_animation()
@@ -31,3 +32,9 @@ func _process(delta):
 	# Clamp the angle and convert to radians
 	#self.rotation = deg_to_rad(clamp(wiggle_angle, -max_rotation*balanceUI.balance, max_rotation*balanceUI.balance))
 	wiglableObject.rotation = wiggle_angle/max_rotation*balanceUI.balance
+	
+func gameOver():
+	pass
+
+func gameWon():
+	pass
