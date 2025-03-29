@@ -20,6 +20,9 @@ var is_in_praying_zone: bool = false
 var is_praying: bool = false
 var not_praying_reputation_penalty_per_second: float = 10
 
+# BANDIT HIT
+var bandit_hit_decrease_wobble: float = 30
+
 
 func _process(delta):
 	#print(reputation)
@@ -63,3 +66,7 @@ func exit_praying_zone():
 	
 func get_npc_spawn_point_position():
 	return position + npc_spawn_point.position
+	
+func hit_by_bandit():
+	print("I got hit by a bandit!")
+	wobbling = wobbling - bandit_hit_decrease_wobble
