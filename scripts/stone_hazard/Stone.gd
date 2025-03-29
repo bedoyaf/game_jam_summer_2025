@@ -11,15 +11,19 @@ func _process(delta):
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
 		var collider = collision_info.get_collider()
-		var bounce_factor = 1.0
+		if collider.is_in_group("Player"):
+					GameManager.adjust_balance(-10)
+					GameManager.adjust_charisma(-5)
+					queue_free()  # Destroy the stone
+		else:
+			var bounce_factor = 1.0
+			if collider is PhysicsBody2D and "physics_material_override" in collider:
+				var physics_material = collider.physics_material_override
+				if physics_material:
+					bounce_factor = physics_material.bounce
 
-		if collider is PhysicsBody2D and "physics_material_override" in collider:
-			var physics_material = collider.physics_material_override
-			if physics_material:
-				bounce_factor = physics_material.bounce
-
-		var normal = collision_info.get_normal()
-		velocity = velocity.bounce(normal) * bounce_factor
+			var normal = collision_info.get_normal()
+			velocity = velocity.bounce(normal) * bounce_factor
 
 	rotation += angular_velocity * delta
 

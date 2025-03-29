@@ -3,31 +3,36 @@ extends Node2D
 @export var speed: float = 100.0
 @export var escape_speed: float = 300.0
 @export var avoid_range: float = 100.0
-@export var amplitude: float = 20.0  # Výška sinusového pohybu
-@export var frequency: float = 5.0   # Frekvence sinusového pohybu
-@export var infinity_size: float = 130.0 # Velikost osmičky
-@export var transition_duration: float = 2.0 # Doba přechodu na osmičku
+@export var amplitude: float = 20.0
+@export var frequency: float = 5.0
+@export var infinity_size: float = 130.0
+@export var transition_duration: float = 2.0 
 
-var player_position: Vector2
+var player: Node2D
 var fleeing: bool = false
 var time: float = 0.0
-var arrived: bool = false  # Jestli už vosa dorazila k hráči
-var transitioning: bool = false  # Přechodový stav
-var transition_time: float = 0.0  # Čas od začátku přechodu
+var arrived: bool = false
+var transitioning: bool = false
+var transition_time: float = 0.0
+
+@onready var damage_timer: Timer = $DamageTimer
 
 func _ready():
+	# Ensure wasp is always rendered above the player
+	z_index = 10  
+
 	var players = get_tree().get_nodes_in_group("Player")
 	if players.is_empty():
 		print("Player not found!")
 		queue_free()
 		return
 
-	player_position = players[0].global_position
+	player = players[0]
 
 	var start_position: Vector2
 	if randf() > 0.8:
 		var random_x = randf_range(0, get_viewport().size.x)
-		while abs(random_x - player_position.x) < avoid_range:
+		while abs(random_x - player.global_position.x) < avoid_range:
 			random_x = randf_range(0, get_viewport().size.x)
 		start_position = Vector2(random_x, -50)
 	else:
@@ -43,43 +48,61 @@ func _process(delta):
 	time += delta
 
 	if fleeing:
-		global_position += (global_position - player_position).normalized() * escape_speed * delta
+		global_position += (global_position - player.global_position).normalized() * escape_speed * delta
 		if not get_viewport_rect().has_point(global_position):
 			queue_free()
 	elif arrived:
-		# Pohyb ve tvaru osmičky
+		# Infinity movement around player
 		var offset_x = cos(time * 2.0) * infinity_size
 		var offset_y = sin(time * 4.0) * infinity_size * 0.5
-		global_position = player_position + Vector2(offset_x, offset_y)
+		global_position = player.global_position + Vector2(offset_x, offset_y)
 	elif transitioning:
-		# Plynulý přechod na osmičku
+		# Smooth transition to infinity movement
 		transition_time += delta
 		var t = clamp(transition_time / transition_duration, 0.0, 1.0)
-		
-		# Interpolace mezi aktuální pozicí a pozicí osmičky
+
 		var target_offset_x = cos(time * 2.0) * infinity_size
 		var target_offset_y = sin(time * 4.0) * infinity_size * 0.5
-		var target_position = player_position + Vector2(target_offset_x, target_offset_y)
-		
+		var target_position = player.global_position + Vector2(target_offset_x, target_offset_y)
+
 		global_position = global_position.lerp(target_position, t)
-		
+
 		if t >= 1.0:
 			transitioning = false
 			arrived = true
+			_start_damage_timer()  # Start dealing damage once wasp arrives
 	else:
-		# Sinusový pohyb při přibližování k hráči
-		var direction = (player_position - global_position).normalized()
-		var perpendicular = Vector2(-direction.y, direction.x)  # Vektor kolmý k pohybu
-		var sinus_offset = sin(time * frequency) * amplitude  # Sinusový pohyb nahoru/dolů
+		# Sinusoidal approach towards player
+		var direction = (player.global_position - global_position).normalized()
+		var perpendicular = Vector2(-direction.y, direction.x)
+		var sinus_offset = sin(time * frequency) * amplitude
 
 		global_position += direction * speed * delta + perpendicular * sinus_offset * delta
 
-		if global_position.distance_to(player_position) < 10.0:
-			transitioning = true  # Začne přechod na osmičku
+		if global_position.distance_to(player.global_position) < 10.0:
+			transitioning = true
 			transition_time = 0.0
 
-# Funkce pro odehnání vosy
+# Function to start damage timer
+func _start_damage_timer():
+	damage_timer.wait_time = 1.0
+	damage_timer.timeout.connect(_deal_damage)
+	add_child(damage_timer)
+	damage_timer.start()
+
+# Function to deal damage
+func _deal_damage():
+	GameManager.adjust_balance(-5)
+	GameManager.adjust_charisma(-3)
+	damage_timer.wait_time = 2.0  # Next hits every 5 seconds
+	damage_timer.start()
+	print("AUAU")
+
+# Function to scare away the wasp
 func scare_away():
 	fleeing = true
-	arrived = false  # Přestane létat v osmičce
-	transitioning = false  # Zruší přechod
+	arrived = false
+	transitioning = false
+
+	if damage_timer and damage_timer.is_inside_tree():
+		damage_timer.stop()
