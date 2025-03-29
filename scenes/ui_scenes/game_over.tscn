@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=3 uid="uid://d32khhpccmkpr"]
+
+[ext_resource type="Script" path="res://scripts/new_menu_scripts/game_over.gd" id="1_8odq8"]
+[ext_resource type="FontFile" uid="uid://dxcsikhwaf23c" path="res://assets/fonts/Wilson wells.otf" id="2_avbx7"]
+[ext_resource type="Texture2D" uid="uid://ceniv8lex5ghg" path="res://scenes/ui_scenes/highlight.png" id="3_syx8o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kjcs1"]
+bg_color = Color(0, 0, 0, 0.776471)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3ff75"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8jxve"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ecial"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8odq8")
+
+[node name="Panel" type="Panel" parent="."]
+z_index = -2
+layout_mode = 0
+offset_left = -212.0
+offset_top = -140.0
+offset_right = -172.0
+offset_bottom = -100.0
+scale = Vector2(10.6294, 6.70654)
+theme_override_styles/panel = SubResource("StyleBoxFlat_kjcs1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.785191, 0.364055, 0.467731, 1)
+theme_override_fonts/font = ExtResource("2_avbx7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3ff75")
+text = "restart
+"
+flat = true
+
+[node name="SpriteB1" type="Sprite2D" parent="VBoxContainer/PlayButton"]
+z_index = -2
+position = Vector2(71.5, 30.5)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("3_syx8o")
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_avbx7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8jxve")
+text = "options
+"
+flat = true
+
+[node name="SpriteB2" type="Sprite2D" parent="VBoxContainer/OptionsButton"]
+z_index = -2
+position = Vector2(71.5, 30.5)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("3_syx8o")
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_avbx7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ecial")
+text = "quit
+"
+flat = true
+
+[node name="SpriteB3" type="Sprite2D" parent="VBoxContainer/QuitButton"]
+z_index = -2
+position = Vector2(71.5, 30.5)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("3_syx8o")
+
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

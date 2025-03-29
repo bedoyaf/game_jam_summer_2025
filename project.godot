@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="game_jam_summer_2025"
-run/main_scene="res://scenes/full_screen_scenes/main_scene_martin.tscn"
+run/main_scene="res://scenes/ui_scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://sprites/icon.svg"
 
@@ -22,7 +22,10 @@ UI="*res://scenes/UI/ui.tscn"
 
 [display]
 
-window/size/mode=2
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/stretch/mode="viewport"
 
 [global_group]
 

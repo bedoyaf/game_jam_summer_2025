@@ -78,7 +78,7 @@ func _process(delta):
 		var sinus_offset = sin(time * frequency) * amplitude
 
 		global_position += direction * speed * delta + perpendicular * sinus_offset * delta
-
+		
 		if global_position.distance_to(player.global_position) < 10.0:
 			transitioning = true
 			transition_time = 0.0

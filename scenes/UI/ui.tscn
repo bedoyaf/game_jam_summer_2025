@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://h05ha11k7ss3"]
+[gd_scene load_steps=5 format=3 uid="uid://h05ha11k7ss3"]
 
 [ext_resource type="Script" path="res://scripts/UI/BalancIcon.gd" id="1_h8k2e"]
+[ext_resource type="Script" path="res://scenes/UI/ui_manager.gd" id="1_xphkx"]
 [ext_resource type="Texture2D" uid="uid://b43ws14dacq4c" path="res://sprites/UI/Balanc icon placeholder.png" id="2_k2dyt"]
+[ext_resource type="PackedScene" uid="uid://d32khhpccmkpr" path="res://scenes/ui_scenes/game_over.tscn" id="3_btee5"]
 
 [node name="UI" type="CanvasLayer"]
+script = ExtResource("1_xphkx")
 
 [node name="Balance" type="Control" parent="."]
 layout_mode = 3
@@ -28,3 +31,9 @@ offset_right = 603.0
 offset_bottom = 598.0
 texture = ExtResource("2_k2dyt")
 expand_mode = 1
+
+[node name="GameOver" parent="." instance=ExtResource("3_btee5")]
+offset_left = -26.0
+offset_top = -312.0
+offset_right = -26.0
+offset_bottom = -312.0
