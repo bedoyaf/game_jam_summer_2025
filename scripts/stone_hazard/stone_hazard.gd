@@ -3,8 +3,8 @@ extends Node2D
 @export var target_node : Node2D
 @export var stone_scene : PackedScene  
 
-var stone_spawn_interval : float = 4.0  
-var last_spawn_time : float = 0.0  
+@export var stone_spawn_interval : float = 10.0  
+var last_spawn_time : float = 5.0  
 var gravity : float = 980.0
 var arc_height : float = 200.0
 var avoid_range : float = 220.0 
