@@ -1,6 +1,6 @@
 extends Node
 
-var balance : float = 1.0
+var balance : float = 100.0
 var maxBalance : float = 100.0
 
 var charisma : float = 50.0
@@ -20,6 +20,8 @@ signal game_over
 signal update_ui
 
 var camera: Camera2D
+
+
 
 func _ready():
 	wasp_timer = Timer.new()
@@ -54,6 +56,7 @@ func adjust_charisma(amount : float):
 
 func adjust_oxygen(amount : float):
 	oxygen += amount
+	print(oxygen)
 	if oxygen > maxOxygen:
 		oxygen = maxOxygen
 	elif oxygen <0:
@@ -79,4 +82,4 @@ func _process(delta):
 	if maxBalance > balance:
 		adjust_balance(0.05 * delta)  
 	if oxygen > 0:
-		adjust_oxygen(-0.1 * delta)  
+		adjust_oxygen(-1 * delta)  

@@ -8,7 +8,7 @@ var current_game_state: GameState = GameState.MainMenu
 
 
 func _process(delta):
-	print(current_game_state)
+	#print(current_game_state)
 	if current_game_state == GameState.MainMenu:
 		balance.visible = false
 		game_over.visible = false

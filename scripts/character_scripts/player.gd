@@ -31,6 +31,10 @@ var center_position: Vector2
 @export var shield_distance: float = 80.0  # Adjustable distance of the shield from the player
 var shield_y_offset: float = -140
 
+
+#Oxygen
+
+
 func _ready():
 	GameManager.camera = $Camera2D
 	center_position = global_position  
@@ -47,6 +51,7 @@ func _process(delta):
 	
 
 func _physics_process(delta):
+
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -106,3 +111,4 @@ func get_npc_spawn_point_position():
 func hit_by_bandit():
 	print("I got hit by a bandit!")
 	wobbling = wobbling - bandit_hit_decrease_wobble
+	
