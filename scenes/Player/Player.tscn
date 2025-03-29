@@ -244,20 +244,20 @@ script = ExtResource("2_cutti")
 position = Vector2(-3, 7)
 
 [node name="RightHand" type="Sprite2D" parent="SkeletonContainer/Parts"]
-position = Vector2(14.1484, -104.338)
+position = Vector2(14.1479, -86.8899)
 scale = Vector2(0.999847, 0.999847)
 texture = ExtResource("2_rwc7k")
 
 [node name="LeftHand" type="Sprite2D" parent="SkeletonContainer/Parts"]
-position = Vector2(-168.176, -167.167)
-rotation = 0.25594
-scale = Vector2(0.999662, 0.999662)
+position = Vector2(-80.2075, -116.422)
+rotation = 0.121881
+scale = Vector2(0.999827, 0.999827)
 texture = ExtResource("3_ytqhd")
 
 [node name="LeftFIst" type="Sprite2D" parent="SkeletonContainer/Parts/LeftHand"]
-position = Vector2(103.354, 34.5329)
-rotation = -0.120255
-scale = Vector2(0.99986, 0.99986)
+position = Vector2(20.9463, 12.0538)
+rotation = -0.0200925
+scale = Vector2(0.999901, 0.999901)
 texture = ExtResource("4_a706v")
 
 [node name="LegLeft" type="Sprite2D" parent="SkeletonContainer/Parts"]
@@ -271,7 +271,7 @@ scale = Vector2(0.999941, 0.999941)
 texture = ExtResource("6_lhxvf")
 
 [node name="Body" type="Sprite2D" parent="SkeletonContainer/Parts"]
-position = Vector2(-6, -117.032)
+position = Vector2(-6, -99.5829)
 scale = Vector2(1, 1)
 texture = ExtResource("7_xo1fq")
 

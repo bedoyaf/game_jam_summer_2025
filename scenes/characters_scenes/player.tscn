@@ -1,6 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://kw28saiikuhh"]
+[gd_scene load_steps=29 format=3 uid="uid://kw28saiikuhh"]
 
 [ext_resource type="Script" path="res://scripts/character_scripts/player.gd" id="1_25jx3"]
+[ext_resource type="Script" path="res://scripts/Player/PlayerAnimationController.gd" id="2_6nhvu"]
+[ext_resource type="Texture2D" uid="uid://bs47se2sjiae7" path="res://sprites/Player/Skeleton/Done/PlayerRightArm.png" id="3_mico4"]
+[ext_resource type="Texture2D" uid="uid://db7iygw7fy3o5" path="res://sprites/Player/Skeleton/Done/PlayerLeftArm.png" id="4_10q1g"]
+[ext_resource type="Texture2D" uid="uid://vwwxjd2e1yj0" path="res://sprites/Player/Skeleton/Done/PlayerLeftFist.png" id="5_okhhr"]
+[ext_resource type="Texture2D" uid="uid://b04oc8yct5nx6" path="res://sprites/Player/Skeleton/Done/PlayerLeftLeg.png" id="6_n1ubb"]
+[ext_resource type="Texture2D" uid="uid://vifv4hl5d2ih" path="res://sprites/Player/Skeleton/Done/PlayerRightLeg.png" id="7_wr2ba"]
+[ext_resource type="Texture2D" uid="uid://dtw375kqupb7x" path="res://sprites/Player/Skeleton/Done/PlayerBodyNormal.png" id="8_2yntg"]
 
 [sub_resource type="Gradient" id="Gradient_wpq6u"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -12,11 +19,230 @@ width = 3
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6yp7"]
 size = Vector2(40, 100)
 
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_6piej"]
+target_nodepath = NodePath("../IKTargetRightHand")
+joint_one_bone_idx = 2
+joint_one_bone2d_node = NodePath("Base/Body/RightArm")
+joint_two_bone_idx = 3
+joint_two_bone2d_node = NodePath("Base/Body/RightArm/RightArm2")
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_d54ig"]
+enabled = false
+target_nodepath = NodePath("../IKTargetLeftHand")
+joint_one_bone_idx = 4
+joint_one_bone2d_node = NodePath("Base/Body/LeftArm")
+joint_two_bone_idx = 5
+joint_two_bone2d_node = NodePath("Base/Body/LeftArm/LeftFist")
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_xfifb"]
+target_nodepath = NodePath("../IKTargetLeftFist")
+joint_one_bone_idx = 5
+joint_one_bone2d_node = NodePath("Base/Body/LeftArm/LeftFist")
+joint_two_bone_idx = 6
+joint_two_bone2d_node = NodePath("Base/Body/LeftArm/LeftFist/LeftFist2")
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_x073e"]
+target_nodepath = NodePath("../IKTargetRightLeg")
+joint_one_bone_idx = 9
+joint_one_bone2d_node = NodePath("Base/RIghtLeg")
+joint_two_bone_idx = 10
+joint_two_bone2d_node = NodePath("Base/RIghtLeg/RIghtLeg2")
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_ots1l"]
+target_nodepath = NodePath("../IKTargetLeftLeg")
+joint_one_bone_idx = 7
+joint_one_bone2d_node = NodePath("Base/LeftLeg")
+joint_two_bone_idx = 8
+joint_two_bone2d_node = NodePath("Base/LeftLeg/LeftLeg")
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_woekg"]
+target_nodepath = NodePath("../IKTargetWholeLeftArm")
+tip_nodepath = NodePath("Base/Body/LeftArm/LeftFist/LeftFist2")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 5
+joint_data/0/bone2d_node = NodePath("Base/Body/LeftArm/LeftFist")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = false
+joint_data/1/bone_index = 4
+joint_data/1/bone2d_node = NodePath("Base/Body/LeftArm")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = false
+joint_data/1/editor_draw_gizmo = false
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_h8n6c"]
+enabled = true
+modification_count = 6
+modifications/0 = SubResource("SkeletonModification2DTwoBoneIK_6piej")
+modifications/1 = SubResource("SkeletonModification2DTwoBoneIK_d54ig")
+modifications/2 = SubResource("SkeletonModification2DTwoBoneIK_xfifb")
+modifications/3 = SubResource("SkeletonModification2DTwoBoneIK_x073e")
+modifications/4 = SubResource("SkeletonModification2DTwoBoneIK_ots1l")
+modifications/5 = SubResource("SkeletonModification2DCCDIK_woekg")
+
+[sub_resource type="Animation" id="Animation_7grub"]
+length = 4.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SkeletonContainer/Skeleton2D/Base/Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9, -634.506)]
+}
+
+[sub_resource type="Animation" id="Animation_dv3pd"]
+resource_name = "Walking"
+length = 3.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SkeletonContainer/Skeleton2D/Base/RIghtLeg:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1.73333, 3, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0950372, -0.0153629, -0.455403, -0.0153629, 0.0950372]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SkeletonContainer/Skeleton2D/Base/LeftLeg:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.858333, 1.73333, 2.63333, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.561446, -0.00636506, 0.499386, -0.00636506, -0.561446]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SkeletonContainer/Skeleton2D/Base/Body/RightArm:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.858333, 1.73333, 2.63333, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.485646, 0.0382792, -0.280498, 0.0382792, 0.485646]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SkeletonContainer/Skeleton2D/Base/Body:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.866667, 1.73333, 2.63333, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-9, -634.506), Vector2(-9, -595.601), Vector2(-9, -634.506), Vector2(-9, -595.601), Vector2(-9, -634.506)]
+}
+
+[sub_resource type="Animation" id="Animation_x3ash"]
+resource_name = "standing"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SkeletonContainer/Skeleton2D/Base/RIghtLeg:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SkeletonContainer/Skeleton2D/Base/LeftLeg:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SkeletonContainer/Skeleton2D/Base/Body/RightArm:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SkeletonContainer/Skeleton2D/Base/Body:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-9, -599), Vector2(-9, -650.17), Vector2(-9, -599)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k0xtb"]
+_data = {
+"RESET": SubResource("Animation_7grub"),
+"Walking": SubResource("Animation_dv3pd"),
+"standing": SubResource("Animation_x3ash")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ibdf8"]
+animation = &"Walking"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2i4mo"]
+animation = &"standing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6g4jk"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pddna"]
+xfade_time = 1.6
+advance_mode = 2
+advance_condition = &"Walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pvse1"]
+xfade_time = 0.8
+advance_mode = 2
+advance_condition = &"Standing"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_km2jt"]
+allow_transition_to_self = true
+states/Start/position = Vector2(214, 100)
+states/Walking/node = SubResource("AnimationNodeAnimation_ibdf8")
+states/Walking/position = Vector2(460, 193)
+states/standing/node = SubResource("AnimationNodeAnimation_2i4mo")
+states/standing/position = Vector2(506, 85)
+transitions = ["Start", "standing", SubResource("AnimationNodeStateMachineTransition_6g4jk"), "standing", "Walking", SubResource("AnimationNodeStateMachineTransition_pddna"), "Walking", "standing", SubResource("AnimationNodeStateMachineTransition_pvse1")]
+
 [node name="Player" type="CharacterBody2D" groups=["NPCs", "Player"]]
 collision_mask = 5
 script = ExtResource("1_25jx3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-1, 0)
 scale = Vector2(13.76, 100)
 texture = SubResource("GradientTexture1D_yu651")
@@ -28,8 +254,179 @@ shape = SubResource("RectangleShape2D_c6yp7")
 position = Vector2(1206, 0)
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -22.0
 offset_top = -76.0
 offset_right = 18.0
 offset_bottom = -53.0
 text = "player"
+
+[node name="SkeletonContainer" type="Node2D" parent="."]
+position = Vector2(-2, -21)
+scale = Vector2(0.08, 0.08)
+script = ExtResource("2_6nhvu")
+
+[node name="Parts" type="Node2D" parent="SkeletonContainer"]
+position = Vector2(-3, 7)
+
+[node name="RightHand" type="Sprite2D" parent="SkeletonContainer/Parts"]
+position = Vector2(14.148, -66.5782)
+scale = Vector2(0.999846, 0.999846)
+texture = ExtResource("3_mico4")
+
+[node name="LeftHand" type="Sprite2D" parent="SkeletonContainer/Parts"]
+position = Vector2(-4.3936, -77.7469)
+rotation = 0.0107344
+scale = Vector2(0.999784, 0.999784)
+texture = ExtResource("4_10q1g")
+
+[node name="LeftFIst" type="Sprite2D" parent="SkeletonContainer/Parts/LeftHand"]
+position = Vector2(-25.6362, -2.95859)
+rotation = 0.0384748
+scale = Vector2(0.999849, 0.999849)
+texture = ExtResource("5_okhhr")
+
+[node name="LegLeft" type="Sprite2D" parent="SkeletonContainer/Parts"]
+position = Vector2(-8.99693, -73.9933)
+scale = Vector2(0.999979, 0.999979)
+texture = ExtResource("6_n1ubb")
+
+[node name="LegRight" type="Sprite2D" parent="SkeletonContainer/Parts"]
+position = Vector2(-9.00498, -63.9823)
+scale = Vector2(0.999941, 0.999941)
+texture = ExtResource("7_wr2ba")
+
+[node name="Body" type="Sprite2D" parent="SkeletonContainer/Parts"]
+position = Vector2(-6, -79.2708)
+texture = ExtResource("8_2yntg")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="SkeletonContainer"]
+position = Vector2(-5, -9)
+modification_stack = SubResource("SkeletonModificationStack2D_h8n6c")
+
+[node name="Base" type="Bone2D" parent="SkeletonContainer/Skeleton2D"]
+position = Vector2(-3, 18)
+rest = Transform2D(1, 0, 0, 1, -3, 18)
+
+[node name="Body" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base"]
+position = Vector2(-9, -634.506)
+rest = Transform2D(1, 0, 0, 1, -9, -599)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SkeletonContainer/Skeleton2D/Base/Body"]
+position = Vector2(8, 523)
+remote_path = NodePath("../../../../Parts/Body")
+
+[node name="RightArm" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base/Body"]
+position = Vector2(-212, -64)
+scale = Vector2(0.999846, 0.999846)
+rest = Transform2D(0.997782, 0.0657363, -0.0657363, 0.997782, -212, -64)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SkeletonContainer/Skeleton2D/Base/Body/RightArm"]
+position = Vector2(240.185, 599.785)
+remote_path = NodePath("../../../../../Parts/RightHand")
+
+[node name="RightArm2" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base/Body/RightArm"]
+position = Vector2(-174.081, 339.133)
+rotation = 2.04504
+rest = Transform2D(1, 0, 0, 1, -174.081, 339.133)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="LeftArm" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base/Body"]
+position = Vector2(137, -166)
+rotation = 0.00259421
+scale = Vector2(0.999837, 0.999837)
+rest = Transform2D(0.999701, -0.023958, 0.023958, 0.999701, 137, -166)
+auto_calculate_length_and_angle = false
+length = 6.132
+bone_angle = -36.9334
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SkeletonContainer/Skeleton2D/Base/Body/LeftArm"]
+position = Vector2(-120, 692)
+remote_path = NodePath("../../../../../Parts/LeftHand")
+
+[node name="LeftFist" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base/Body/LeftArm"]
+position = Vector2(132.991, -99.9946)
+rotation = 0.0288492
+scale = Vector2(0.999903, 0.999903)
+rest = Transform2D(0.998733, 0.0502901, -0.0502901, 0.998733, 133, -100)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SkeletonContainer/Skeleton2D/Base/Body/LeftArm/LeftFist"]
+position = Vector2(-248.053, 800.516)
+remote_path = NodePath("../../../../../../Parts/LeftHand/LeftFIst")
+
+[node name="LeftFist2" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base/Body/LeftArm/LeftFist"]
+position = Vector2(98.5498, 196.496)
+rotation = 1.20923
+scale = Vector2(1, 1)
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="LeftLeg" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base"]
+position = Vector2(143, 243)
+scale = Vector2(0.999979, 0.999979)
+rest = Transform2D(1, 0, 0, 1, 143, 243)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SkeletonContainer/Skeleton2D/Base/LeftLeg"]
+position = Vector2(-147, -319)
+remote_path = NodePath("../../../../Parts/LegLeft")
+
+[node name="LeftLeg" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base/LeftLeg"]
+position = Vector2(-15, 562)
+rotation = 1.59748
+scale = Vector2(0.99997, 0.99997)
+rest = Transform2D(1, 0, 0, 1, -15, 562)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RIghtLeg" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base"]
+position = Vector2(-88, 232)
+scale = Vector2(0.999941, 0.999941)
+rest = Transform2D(0.999827, -0.0110555, 0.0110555, 0.999827, -88, 232)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SkeletonContainer/Skeleton2D/Base/RIghtLeg"]
+position = Vector2(84, -298)
+remote_path = NodePath("../../../../Parts/LegRight")
+
+[node name="RIghtLeg2" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base/RIghtLeg"]
+position = Vector2(-66, 544)
+rotation = 1.69153
+scale = Vector2(1, 1)
+rest = Transform2D(1, 9.31323e-10, -9.31323e-10, 1, -66, 544)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="IKTargetLeftFist" type="Node2D" parent="SkeletonContainer"]
+visible = false
+position = Vector2(1024, -1593)
+
+[node name="IKTargetLeftHand" type="Node2D" parent="SkeletonContainer"]
+visible = false
+position = Vector2(2470, -588)
+
+[node name="IKTargetRightHand" type="Node2D" parent="SkeletonContainer"]
+position = Vector2(-1105, 100)
+
+[node name="IKTargetLeftLeg" type="Node2D" parent="SkeletonContainer"]
+position = Vector2(-721, 1694)
+
+[node name="IKTargetRightLeg" type="Node2D" parent="SkeletonContainer"]
+position = Vector2(333, 1120)
+
+[node name="IKTargetWholeLeftArm" type="Node2D" parent="SkeletonContainer"]
+position = Vector2(344, -657)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SkeletonContainer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_k0xtb")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="SkeletonContainer"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeStateMachine_km2jt")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/Standing = false
+parameters/conditions/Walking = false

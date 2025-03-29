@@ -13,7 +13,7 @@
 [node name="NPC_spawner" parent="." instance=ExtResource("1_015pm")]
 
 [node name="Player" parent="." instance=ExtResource("2_eiid2")]
-position = Vector2(208, 419)
+position = Vector2(198, 425)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(421, -259)
@@ -35,3 +35,6 @@ script = null
 [node name="Priest" parent="." instance=ExtResource("4_4ptyd")]
 visible = false
 position = Vector2(774, 415)
+
+[node name="Priest2" parent="." instance=ExtResource("4_4ptyd")]
+position = Vector2(599, 299)

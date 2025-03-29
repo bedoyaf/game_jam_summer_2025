@@ -20,6 +20,7 @@ var is_in_praying_zone: bool = false
 var is_praying: bool = false
 var not_praying_reputation_penalty_per_second: float = 10
 
+@onready var skeleton = $SkeletonContainer
 
 func _process(delta):
 	#print(reputation)
@@ -37,8 +38,10 @@ func _physics_process(delta):
 
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
+		skeleton.play_stand_animation()
 		velocity.x = direction * SPEED
 	else:
+		skeleton.play_walk_animation()
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()

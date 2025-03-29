@@ -13,6 +13,7 @@ var is_npc_spawned: bool = false
 var rng: RandomNumberGenerator
 
 func _ready():
+	print("here")
 	npc_spawn_timer.wait_time = npc_spawn_rate_seconds
 	npc_spawn_timer.start()
 	rng = RandomNumberGenerator.new()
