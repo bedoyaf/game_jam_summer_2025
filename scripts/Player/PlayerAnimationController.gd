@@ -4,7 +4,7 @@ extends Node
 @onready var state_machine = animation_tree.get("parameters/playback")
 
 var balanceUI
-@export var max_rotation: float = 30.0
+@export var max_rotation: float = 60.0
 
 func _ready():
 	animation_tree.active = true
@@ -27,4 +27,5 @@ func _process(delta):
 		# Use the amplitude from the UI script to control rotation
 	var wiggle_angle = balanceUI.currentSadam*10
 	# Clamp the angle and convert to radians
-	self.rotation = deg_to_rad(clamp(wiggle_angle, -max_rotation*balanceUI.balance, max_rotation*balanceUI.balance))
+	#self.rotation = deg_to_rad(clamp(wiggle_angle, -max_rotation*balanceUI.balance, max_rotation*balanceUI.balance))
+	self.rotation = wiggle_angle/max_rotation*balanceUI.balance

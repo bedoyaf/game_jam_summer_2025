@@ -272,7 +272,6 @@ texture = ExtResource("6_lhxvf")
 
 [node name="Body" type="Sprite2D" parent="SkeletonContainer/Parts"]
 position = Vector2(-6, -99.5829)
-scale = Vector2(1, 1)
 texture = ExtResource("7_xo1fq")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="SkeletonContainer"]

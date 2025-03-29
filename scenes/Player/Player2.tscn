@@ -489,7 +489,6 @@ scale = Vector2(0.99983, 0.99983)
 
 [node name="RShin" type="Sprite2D" parent="Robot/Parts/Hip/RLeg"]
 position = Vector2(4.32813, 92.9631)
-scale = Vector2(1, 1)
 
 [node name="RFoot" type="Sprite2D" parent="Robot/Parts/Hip/RLeg/RShin"]
 position = Vector2(16.5763, 91.2307)

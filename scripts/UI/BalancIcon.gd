@@ -3,7 +3,7 @@ extends Control  # Can be Node2D if you're working outside UI
 @export var base_amplitude: float = 20.0  # Minimum movement range
 @export var max_amplitude: float = 250.0  # Maximum oscillation range
 @export var frequency: float = 1.0  # Speed of oscillation
-@export var balance: float = 0.2  # External value that controls oscillation
+@export var balance: float = 1.0  # External value that controls oscillation
 
 var time_elapsed: float = 0.0
 var center_x: float

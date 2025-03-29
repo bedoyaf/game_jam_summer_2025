@@ -219,12 +219,12 @@ animation = &"standing"
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pddna"]
-xfade_time = 1.6
+xfade_time = 0.4
 advance_mode = 2
 advance_condition = &"Walking"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pvse1"]
-xfade_time = 0.8
+xfade_time = 0.4
 advance_mode = 2
 advance_condition = &"Standing"
 
@@ -270,20 +270,20 @@ script = ExtResource("2_6nhvu")
 position = Vector2(-3, 7)
 
 [node name="RightHand" type="Sprite2D" parent="SkeletonContainer/Parts"]
-position = Vector2(14.1479, -88.4211)
+position = Vector2(14.1478, -70.3521)
 scale = Vector2(0.999845, 0.999845)
 texture = ExtResource("3_mico4")
 
 [node name="LeftHand" type="Sprite2D" parent="SkeletonContainer/Parts"]
-position = Vector2(-87.8204, -120.394)
-rotation = 0.133267
-scale = Vector2(0.9997, 0.9997)
+position = Vector2(-40.377, -89.3252)
+rotation = 0.0631838
+scale = Vector2(0.999525, 0.999525)
 texture = ExtResource("4_10q1g")
 
 [node name="LeftFIst" type="Sprite2D" parent="SkeletonContainer/Parts/LeftHand"]
-position = Vector2(27.294, 14.0531)
-rotation = -0.0279053
-scale = Vector2(0.999831, 0.999831)
+position = Vector2(9.45379, 11.0285)
+rotation = -0.00544514
+scale = Vector2(0.999828, 0.999828)
 texture = ExtResource("5_okhhr")
 
 [node name="LegLeft" type="Sprite2D" parent="SkeletonContainer/Parts"]
@@ -297,7 +297,7 @@ scale = Vector2(0.999941, 0.999941)
 texture = ExtResource("7_wr2ba")
 
 [node name="Body" type="Sprite2D" parent="SkeletonContainer/Parts"]
-position = Vector2(-6, -101.113)
+position = Vector2(-6, -83.0442)
 texture = ExtResource("8_2yntg")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="SkeletonContainer"]
