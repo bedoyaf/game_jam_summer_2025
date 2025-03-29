@@ -30,7 +30,7 @@ func _process(delta):
 
 		if position.y > get_viewport().size.y:
 			queue_free()
-			print("Stone destroyed")
+			#print("Stone destroyed")
 
 
 func _on_destroy_timer_timeout() -> void:
