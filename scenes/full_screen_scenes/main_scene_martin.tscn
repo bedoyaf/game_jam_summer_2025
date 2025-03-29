@@ -85,5 +85,3 @@ one_shot = true
 script = ExtResource("6_twy0p")
 target_node = NodePath("../Player")
 stone_scene = ExtResource("7_h7gfm")
-
-[editable path="Player"]

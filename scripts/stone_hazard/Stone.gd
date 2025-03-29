@@ -1,41 +1,36 @@
-extends CharacterBody2D
+extends RigidBody2D
 
-var angular_velocity : float = 0.0 
 var is_in_viewport : bool = false  
-var gravity2 : float = 980.0
 
-func _physics_process(delta: float) -> void:
+@export var gravity2 : float = 850.0  # Gravity multiplier
 
-	velocity.y += gravity2 * delta
+func _ready():
+	# Enable Continuous Collision Detection to prevent tunneling
+	continuous_cd = RigidBody2D.CCD_MODE_CAST_RAY  
 
-	var collision_info = move_and_collide(velocity * delta)
-	if collision_info:
-		var collider = collision_info.get_collider()
-		if collider.is_in_group("Player"):
-					GameManager.adjust_balance(-10)
-					GameManager.adjust_charisma(-5)
-					queue_free()  # Destroy the stone
-		else:
-			var bounce_factor = 1.0
-			if collider is PhysicsBody2D and "physics_material_override" in collider:
-				var physics_material = collider.physics_material_override
-				if physics_material:
-					bounce_factor = physics_material.bounce
+func _integrate_forces(state: PhysicsDirectBodyState2D):
+	linear_velocity.y += gravity2 * state.step
 
-			var normal = collision_info.get_normal()
-			velocity = velocity.bounce(normal) * bounce_factor
+	# Apply rotation
+	angular_velocity = clamp(angular_velocity, -5.0, 5.0)  # Prevent excessive spin
+	rotation += angular_velocity * state.step
 
-	rotation += angular_velocity * delta
-
+	# Check if stone exits the screen
 	if not is_in_viewport and $VisibleOnScreenNotifier2D.is_on_screen():
 		is_in_viewport = true
 
 	if is_in_viewport and not $VisibleOnScreenNotifier2D.is_on_screen():
-
 		if position.y > get_viewport().size.y:
 			queue_free()
-			#print("Stone destroyed")
 
-
+# Destroy the stone after a timeout
 func _on_destroy_timer_timeout() -> void:
-	queue_free() 
+	queue_free()
+
+func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
+	# Check if colliding with player
+	if body.is_in_group("Player"):
+		GameManager.adjust_balance(-10)
+		GameManager.adjust_charisma(-5)
+		queue_free()  # Destroy the stone
+		return  # Exit early to prevent further processing

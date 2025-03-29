@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bm1hirykn0a7w"]
 
 [ext_resource type="Script" path="res://scripts/wasp_hazard/wasp.gd" id="1_mkogr"]
-[ext_resource type="Texture2D" uid="uid://bhlf0ui6loxd4" path="res://sprites/Player/player placeholder.png" id="2_l0l6l"]
+[ext_resource type="Texture2D" uid="uid://1i5r2xs8j7qr" path="res://sprites/hazards/vosa.png" id="2_0ilgn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8rllp"]
 
@@ -9,12 +9,18 @@
 script = ExtResource("1_mkogr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.95699, 1.95699)
 shape = SubResource("CircleShape2D_8rllp")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-modulate = Color(1, 1, 0.176471, 1)
-self_modulate = Color(1, 1, 0.2, 1)
-scale = Vector2(0.0408526, 0.0408526)
-texture = ExtResource("2_l0l6l")
+scale = Vector2(0.259755, 0.259755)
+texture = ExtResource("2_0ilgn")
+region_enabled = true
+region_rect = Rect2(684.72, 357.084, 68.7953, 70.6781)
 
 [node name="DamageTimer" type="Timer" parent="."]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(1.46266, 1.46266)
+
+[connection signal="timeout" from="DamageTimer" to="." method="_deal_damage"]
