@@ -24,6 +24,12 @@ func play_stand_animation():
 	if state_machine.get_current_node() != "standing":
 		state_machine.travel("standing")  # Switch to standing animation
 
+func play_kick_animation():
+	if state_machine.get_current_node() != "Kick":
+		state_machine.travel("Kick")  # Switch to standing animation
+
+
+
 func _process(delta):
 	if not balanceUI:
 		return
