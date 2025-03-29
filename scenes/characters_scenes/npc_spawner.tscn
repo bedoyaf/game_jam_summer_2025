@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx8qao5awhatt"]
+
+[ext_resource type="Script" path="res://scripts/character_scripts/npc_spawner.gd" id="1_86tpk"]
+
+[node name="NPC_spawner" type="Node2D" groups=["NPCSpawner"]]
+script = ExtResource("1_86tpk")
+
+[node name="NPC_spawn_timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="NPC_spawn_timer" to="." method="_on_npc_spawn_timer_timeout"]

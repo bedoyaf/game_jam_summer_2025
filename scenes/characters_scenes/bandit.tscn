@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbhhwvg2o3dk4"]
+
+[ext_resource type="Script" path="res://scripts/character_scripts/bandit.gd" id="1_otnca"]
+
+[sub_resource type="Gradient" id="Gradient_wpq6u"]
+offsets = PackedFloat32Array(0, 0.536145, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.779291, 0.779291, 0.779291, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yu651"]
+gradient = SubResource("Gradient_wpq6u")
+width = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6yp7"]
+size = Vector2(40, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xssqv"]
+size = Vector2(40, 100)
+
+[node name="Bandit" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 12
+script = ExtResource("1_otnca")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(13.76, 100)
+texture = SubResource("GradientTexture1D_yu651")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c6yp7")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -22.0
+offset_top = -76.0
+offset_right = 18.0
+offset_bottom = -53.0
+text = "bandit
+
+"
+
+[node name="IsVisibleNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_xssqv")
+
+[connection signal="screen_exited" from="IsVisibleNotifier" to="." method="_on_is_visible_notifier_screen_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

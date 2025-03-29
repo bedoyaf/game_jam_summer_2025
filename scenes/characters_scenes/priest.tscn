@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3xyxmngyy6st"]
+
+[ext_resource type="Script" path="res://scripts/character_scripts/priest.gd" id="1_y20mp"]
+[ext_resource type="Script" path="res://scripts/mechanics_scripts/praying_zone.gd" id="2_ajno8"]
+
+[sub_resource type="Gradient" id="Gradient_wpq6u"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yu651"]
+gradient = SubResource("Gradient_wpq6u")
+width = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6yp7"]
+size = Vector2(40, 100)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3sheb"]
+radius = 453.319
+
+[node name="Priest" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 12
+script = ExtResource("1_y20mp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(13.76, 100)
+texture = SubResource("GradientTexture1D_yu651")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c6yp7")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -22.0
+offset_top = -76.0
+offset_right = 18.0
+offset_bottom = -53.0
+text = "priest
+"
+
+[node name="PrayingZone" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("2_ajno8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrayingZone"]
+shape = SubResource("CircleShape2D_3sheb")
+
+[node name="IsVisibleNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="PrayingZone" to="PrayingZone" method="_on_body_entered"]
+[connection signal="body_exited" from="PrayingZone" to="PrayingZone" method="_on_body_exited"]
+[connection signal="screen_exited" from="IsVisibleNotifier" to="." method="_on_is_visible_notifier_screen_exited"]
