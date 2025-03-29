@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cgwrg6epyh0vy"]
 
-[ext_resource type="Script" path="res://scripts/character_scripts/player.gd" id="1_5f0ug"]
+[ext_resource type="Script" path="res://scripts/character_scripts/princess.gd" id="1_d7wvr"]
 
 [sub_resource type="Gradient" id="Gradient_wpq6u"]
 colors = PackedColorArray(1, 0.521569, 1, 1, 0.963161, 0.442295, 0.464628, 1)
@@ -10,16 +10,16 @@ gradient = SubResource("Gradient_wpq6u")
 width = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6yp7"]
-size = Vector2(40, 100)
+size = Vector2(134, 336)
 
 [node name="Princess" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 12
-script = ExtResource("1_5f0ug")
+script = ExtResource("1_d7wvr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, 0)
-scale = Vector2(13.76, 100)
+scale = Vector2(46.015, 334.411)
 texture = SubResource("GradientTexture1D_yu651")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -27,8 +27,8 @@ shape = SubResource("RectangleShape2D_c6yp7")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -22.0
-offset_top = -76.0
-offset_right = 18.0
-offset_bottom = -53.0
+offset_top = -193.0
+offset_right = 43.0
+offset_bottom = -170.0
 text = "princess
 "

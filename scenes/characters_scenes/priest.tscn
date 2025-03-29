@@ -11,7 +11,7 @@ gradient = SubResource("Gradient_wpq6u")
 width = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6yp7"]
-size = Vector2(40, 100)
+size = Vector2(138, 334)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3sheb"]
 radius = 453.319
@@ -23,17 +23,18 @@ script = ExtResource("1_y20mp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, 0)
-scale = Vector2(13.76, 100)
+scale = Vector2(46.015, 334.411)
 texture = SubResource("GradientTexture1D_yu651")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_c6yp7")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -22.0
-offset_top = -76.0
-offset_right = 18.0
-offset_bottom = -53.0
+offset_left = -20.0
+offset_top = -199.0
+offset_right = 25.0
+offset_bottom = -176.0
 text = "priest
 "
 

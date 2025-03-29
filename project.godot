@@ -20,6 +20,10 @@ config/icon="res://sprites/icon.svg"
 GameManager="*res://scripts/GameManager.gd"
 UI="*res://scenes/UI/ui.tscn"
 
+[display]
+
+window/size/mode=2
+
 [input]
 
 Test={

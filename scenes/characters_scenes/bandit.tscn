@@ -11,10 +11,10 @@ gradient = SubResource("Gradient_wpq6u")
 width = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6yp7"]
-size = Vector2(40, 100)
+size = Vector2(138, 335)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xssqv"]
-size = Vector2(40, 100)
+size = Vector2(138, 334)
 
 [node name="Bandit" type="CharacterBody2D"]
 collision_layer = 2
@@ -22,17 +22,18 @@ collision_mask = 12
 script = ExtResource("1_otnca")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(13.76, 100)
+scale = Vector2(46.015, 334.411)
 texture = SubResource("GradientTexture1D_yu651")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_c6yp7")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -22.0
-offset_top = -76.0
-offset_right = 18.0
-offset_bottom = -53.0
+offset_left = -23.0
+offset_top = -200.0
+offset_right = 28.0
+offset_bottom = -151.0
 text = "bandit
 
 "
@@ -43,6 +44,7 @@ text = "bandit
 collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_xssqv")
 
 [connection signal="screen_exited" from="IsVisibleNotifier" to="." method="_on_is_visible_notifier_screen_exited"]

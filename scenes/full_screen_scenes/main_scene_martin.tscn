@@ -13,24 +13,25 @@
 [node name="NPC_spawner" parent="." instance=ExtResource("1_015pm")]
 
 [node name="Player" parent="." instance=ExtResource("2_eiid2")]
-position = Vector2(198, 425)
+position = Vector2(206, 880)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(421, -259)
+position = Vector2(459, -234)
 
 [node name="Parallax" parent="." instance=ExtResource("1_la2fx")]
+position = Vector2(0, 252)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(28, 527)
 collision_layer = 4
 collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(433, 482)
+position = Vector2(359, 707)
 shape = SubResource("WorldBoundaryShape2D_rt8bo")
 
-[node name="Princess" parent="." instance=ExtResource("3_7b0v1")]
-position = Vector2(921, 400)
-script = null
-
 [node name="Priest" parent="." instance=ExtResource("4_4ptyd")]
-position = Vector2(774, 415)
+position = Vector2(862, 914)
+
+[node name="Princess" parent="." instance=ExtResource("3_7b0v1")]
+position = Vector2(1415, 882)
