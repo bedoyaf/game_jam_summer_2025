@@ -72,6 +72,7 @@ scale = Vector2(0.999938, 0.999938)
 rotation = 1.69153
 scale = Vector2(1, 1)
 
+
 [node name="Parallax" parent="." instance=ExtResource("1_la2fx")]
 position = Vector2(0, 252)
 
@@ -98,5 +99,3 @@ one_shot = true
 script = ExtResource("6_twy0p")
 target_node = NodePath("../Player")
 stone_scene = ExtResource("7_h7gfm")
-
-[editable path="Player"]

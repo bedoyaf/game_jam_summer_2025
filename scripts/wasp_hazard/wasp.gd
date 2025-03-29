@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var speed: float = 100.0
+@export var speed: float = 280.0
 @export var escape_speed: float = 300.0
 @export var avoid_range: float = 100.0
 @export var amplitude: float = 20.0
@@ -32,16 +32,16 @@ func _ready():
 
 	var start_position: Vector2
 	if randf() > 0.8:
-		var random_x = randf_range(0, get_viewport().size.x)
+		var random_x = randf_range(player.global_position.x - 600, player.global_position.x + 1500)
 		while abs(random_x - player.global_position.x) < avoid_range:
-			random_x = randf_range(0, get_viewport().size.x)
-		start_position = Vector2(random_x, -50)
+			random_x = randf_range(player.global_position.x - 600, player.global_position.x + 1500)
+		start_position = Vector2(random_x, player.global_position.y - 700)  # Spawn above player
 	else:
-		var random_y = randf_range(0, get_viewport().size.y)
-		if randf() > 0.5:
-			start_position = Vector2(-50, random_y)
+		var random_y = randf_range(player.global_position.y - 800, player.global_position.y + 1300)
+		if randf() > 0.8:
+			start_position = Vector2(player.global_position.x - 600, random_y)  # Spawn left
 		else:
-			start_position = Vector2(get_viewport().size.x + 50, random_y)
+			start_position = Vector2(player.global_position.x + 1500, random_y)  # Spawn right
 
 	# Adjust start position based on y_target_offset
 	global_position = start_position + Vector2(0, y_target_offset)
@@ -51,7 +51,7 @@ func _process(delta):
 
 	if fleeing:
 		global_position += (global_position - player.global_position).normalized() * escape_speed * delta
-		if not get_viewport_rect().has_point(global_position):
+		if not $VisibleOnScreenNotifier2D.is_on_screen():
 			queue_free()
 	elif arrived:
 		# Infinity movement around player
@@ -84,19 +84,20 @@ func _process(delta):
 		if global_position.distance_to(player.global_position + Vector2(0, y_target_offset)) < 10.0:  # Adjust distance check to account for the offset
 			transitioning = true
 			transition_time = 0.0
+	
+	if player and $CollisionShape2D/Sprite2D:
+		$CollisionShape2D/Sprite2D.flip_h = global_position.x > player.global_position.x
 
 # Function to start damage timer
 func _start_damage_timer():
 	damage_timer.wait_time = 1.0
-	damage_timer.timeout.connect(_deal_damage)
-	add_child(damage_timer)
 	damage_timer.start()
 
 # Function to deal damage
 func _deal_damage():
 	GameManager.adjust_balance(-5)
 	GameManager.adjust_charisma(-3)
-	damage_timer.wait_time = 2.0  # Next hits every 5 seconds
+	damage_timer.wait_time = 2.0  # Next hits every 2 seconds
 	damage_timer.start()
 	print("AUAU")
 

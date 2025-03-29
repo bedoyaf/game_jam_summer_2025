@@ -11,6 +11,7 @@ var current_game_state: GameState = GameState.MainMenu
 var death_reason: GameManager.DeathReason
 
 func _process(delta):
+
 	if current_game_state == GameState.MainMenu:
 		balance.visible = false
 		game_over.visible = false

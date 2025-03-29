@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=38 format=3 uid="uid://kw28saiikuhh"]
+
 
 [ext_resource type="Script" path="res://scripts/character_scripts/player.gd" id="1_25jx3"]
 [ext_resource type="Script" path="res://scripts/Player/PlayerAnimationController.gd" id="2_6nhvu"]
@@ -8,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://b04oc8yct5nx6" path="res://sprites/Player/Skeleton/Done/PlayerLeftLeg.png" id="6_n1ubb"]
 [ext_resource type="Texture2D" uid="uid://vifv4hl5d2ih" path="res://sprites/Player/Skeleton/Done/PlayerRightLeg.png" id="7_wr2ba"]
 [ext_resource type="Texture2D" uid="uid://f3kc27lb3lmi" path="res://sprites/Player/Skeleton/PlayerBodyNormal2.png" id="8_a3h1g"]
+[ext_resource type="Texture2D" uid="uid://5coxl81004eu" path="res://sprites/Player/Skeleton/Done/Eye.png" id="9_04cpt"]
+
 [ext_resource type="Texture2D" uid="uid://bqeo2av377rp6" path="res://sprites/icon.svg" id="10_tthxl"]
 
 [sub_resource type="Gradient" id="Gradient_wpq6u"]
@@ -16,9 +20,6 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_yu651"]
 gradient = SubResource("Gradient_wpq6u")
 width = 3
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6yp7"]
-size = Vector2(149, 577)
 
 [sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_6piej"]
 target_nodepath = NodePath("../IKTargetRightHand")
@@ -80,6 +81,9 @@ modifications/2 = SubResource("SkeletonModification2DTwoBoneIK_xfifb")
 modifications/3 = SubResource("SkeletonModification2DTwoBoneIK_x073e")
 modifications/4 = SubResource("SkeletonModification2DTwoBoneIK_ots1l")
 modifications/5 = SubResource("SkeletonModification2DCCDIK_woekg")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06kjx"]
+size = Vector2(19.0303, 2.92103)
 
 [sub_resource type="Animation" id="Animation_blmwe"]
 resource_name = "Kick"
@@ -293,14 +297,8 @@ states/standing/position = Vector2(506, 85)
 transitions = ["Start", "standing", SubResource("AnimationNodeStateMachineTransition_6g4jk"), "standing", "Walking", SubResource("AnimationNodeStateMachineTransition_pddna"), "Walking", "standing", SubResource("AnimationNodeStateMachineTransition_pvse1"), "standing", "Kick", SubResource("AnimationNodeStateMachineTransition_e1e68"), "Kick", "Walking", SubResource("AnimationNodeStateMachineTransition_muib6"), "Kick", "standing", SubResource("AnimationNodeStateMachineTransition_rmsg3"), "Walking", "Kick", SubResource("AnimationNodeStateMachineTransition_3dhy8")]
 graph_offset = Vector2(47, 35)
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ydt70"]
-friction = 0.0
-bounce = 0.7
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_06kjx"]
-size = Vector2(20, 1.42072)
-
 [node name="Player" type="CharacterBody2D" groups=["NPCs", "Player"]]
+collision_layer = 4097
 collision_mask = 5
 script = ExtResource("1_25jx3")
 
@@ -309,10 +307,6 @@ visible = false
 position = Vector2(-1, 0)
 scale = Vector2(13.76, 100)
 texture = SubResource("GradientTexture1D_yu651")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6.5, -50.5)
-shape = SubResource("RectangleShape2D_c6yp7")
 
 [node name="NPC_spawn_point" type="Node2D" parent="."]
 position = Vector2(2007, 0)
@@ -335,20 +329,22 @@ wiglableObject = NodePath("Skeleton2D/Base/Body")
 position = Vector2(-3, 7)
 
 [node name="RightHand" type="Sprite2D" parent="SkeletonContainer/Parts"]
-position = Vector2(14.1492, -109.614)
-scale = Vector2(0.999851, 0.999851)
+
+position = Vector2(14.1489, -69.0198)
+scale = Vector2(0.99985, 0.99985)
 texture = ExtResource("3_mico4")
 
 [node name="LeftHand" type="Sprite2D" parent="SkeletonContainer/Parts"]
-position = Vector2(-266.661, -227.16)
-rotation = 0.416523
-scale = Vector2(0.999871, 0.999871)
+position = Vector2(-578.475, -738.266)
+rotation = 1.35259
+scale = Vector2(0.999867, 0.999867)
 texture = ExtResource("4_10q1g")
 
 [node name="LeftFIst" type="Sprite2D" parent="SkeletonContainer/Parts/LeftHand"]
-position = Vector2(264.83, 45.902)
-rotation = -0.314586
-scale = Vector2(0.999838, 0.999838)
+position = Vector2(-56.1907, -1569.92)
+rotation = 2.46132
+scale = Vector2(0.999883, 0.999883)
+
 texture = ExtResource("5_okhhr")
 
 [node name="LegLeft" type="Sprite2D" parent="SkeletonContainer/Parts"]
@@ -362,8 +358,15 @@ scale = Vector2(0.999938, 0.999938)
 texture = ExtResource("7_wr2ba")
 
 [node name="Body" type="Sprite2D" parent="SkeletonContainer/Parts"]
-position = Vector2(-6, -122.309)
+
+position = Vector2(-6, -81.7146)
 texture = ExtResource("8_a3h1g")
+
+[node name="Eye" type="Sprite2D" parent="SkeletonContainer/Parts/Body"]
+z_index = 1
+position = Vector2(2.33333, -0.432532)
+texture = ExtResource("9_04cpt")
+
 
 [node name="Skeleton2D" type="Skeleton2D" parent="SkeletonContainer"]
 position = Vector2(-5, -9)
@@ -383,7 +386,9 @@ remote_path = NodePath("../../../../Parts/Body")
 
 [node name="RightArm" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base/Body"]
 position = Vector2(-212, -64)
-scale = Vector2(0.999851, 0.999851)
+
+scale = Vector2(0.99985, 0.99985)
+
 rest = Transform2D(0.997782, 0.0657363, -0.0657363, 0.997782, -212, -64)
 metadata/_local_pose_override_enabled_ = true
 
@@ -427,6 +432,26 @@ rotation = -0.103309
 scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(1, 0, 0, 1, 0, 0)
 metadata/_local_pose_override_enabled_ = true
+
+[node name="Shield" type="CharacterBody2D" parent="SkeletonContainer/Skeleton2D/Base/Body/LeftArm/LeftFist" groups=["Shield"]]
+z_index = -2
+position = Vector2(98.8579, 178.576)
+rotation = 2.69775
+scale = Vector2(3.8903, 3.8903)
+collision_layer = 4096
+collision_mask = 4096
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SkeletonContainer/Skeleton2D/Base/Body/LeftArm/LeftFist/Shield"]
+position = Vector2(0.820076, -28.727)
+rotation = -0.00149307
+scale = Vector2(12.664, 12.664)
+shape = SubResource("RectangleShape2D_06kjx")
+
+[node name="Sprite2D" type="Sprite2D" parent="SkeletonContainer/Skeleton2D/Base/Body/LeftArm/LeftFist/Shield/CollisionShape2D"]
+self_modulate = Color(0.290354, 0.290354, 0.290353, 1)
+position = Vector2(0.0394824, -0.0642425)
+scale = Vector2(0.145468, 0.0212049)
+texture = ExtResource("10_tthxl")
 
 [node name="LeftLeg" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base"]
 position = Vector2(143, 243)
@@ -477,7 +502,7 @@ position = Vector2(693.333, 1250)
 position = Vector2(1090, 1106.67)
 
 [node name="IKTargetWholeLeftArm" type="Node2D" parent="SkeletonContainer"]
-position = Vector2(360, -636.667)
+position = Vector2(293.333, -873.333)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SkeletonContainer"]
 root_node = NodePath("../..")
@@ -493,23 +518,9 @@ parameters/conditions/Kick = false
 parameters/conditions/Standing = false
 parameters/conditions/Walking = false
 
-[node name="Shield" type="RigidBody2D" parent="."]
-position = Vector2(-5, -351)
-collision_layer = 2
-collision_mask = 2
-physics_material_override = SubResource("PhysicsMaterial_ydt70")
-gravity_scale = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Shield"]
-position = Vector2(0, -35.9959)
-scale = Vector2(12.664, 12.664)
-shape = SubResource("RectangleShape2D_06kjx")
-
-[node name="Sprite2D" type="Sprite2D" parent="Shield/CollisionShape2D"]
-self_modulate = Color(0.290354, 0.290354, 0.290353, 1)
-position = Vector2(-0.236893, -0.0792844)
-scale = Vector2(0.145468, 0.0141839)
-texture = ExtResource("10_tthxl")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(390, -245)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-100, -72, -72, -189, -114, -190, -115, -236, -80, -269, -48, -277, -60, -340, -14, -354, 15, -287, 76, -288, 86, -241, 45, -202, 68, -54, 4, 255)

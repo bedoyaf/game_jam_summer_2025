@@ -8,6 +8,7 @@ var balanceUI
 
 @export var wiglableObject : Node2D 
 
+@onready var Eye : Sprite2D = $Parts/Body/Eye
 
 func _ready():
 	animation_tree.active = true
@@ -39,8 +40,14 @@ func _process(delta):
 	#self.rotation = deg_to_rad(clamp(wiggle_angle, -max_rotation*balanceUI.balance, max_rotation*balanceUI.balance))
 	wiglableObject.rotation = wiggle_angle/max_rotation*balanceUI.balance
 	
+	UpdateEyeRedness()
+	
 func gameOver():
 	pass
 
 func gameWon():
 	pass
+	
+func UpdateEyeRedness():
+	var intensity = 1- GameManager.oxygen / GameManager.maxOxygen
+	Eye.modulate = lerp(Color(1, 1, 1), Color(1, 0, 0), intensity)

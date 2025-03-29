@@ -40,7 +40,12 @@ offset_bottom = 579.0
 texture = SubResource("GradientTexture2D_4gu80")
 expand_mode = 1
 
-[node name="Icon" type="TextureRect" parent="Balance"]
+[node name="Visual" type="Control" parent="Balance"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Icon" type="TextureRect" parent="Balance/Visual"]
 layout_mode = 0
 offset_left = 563.0
 offset_top = 558.0

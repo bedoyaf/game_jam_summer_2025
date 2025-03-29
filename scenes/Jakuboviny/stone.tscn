@@ -1,29 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdha4krjwhb2v"]
+[gd_scene load_steps=5 format=3 uid="uid://bdha4krjwhb2v"]
 
-[ext_resource type="Texture2D" uid="uid://bqeo2av377rp6" path="res://sprites/icon.svg" id="1_24wby"]
 [ext_resource type="Script" path="res://scripts/stone_hazard/Stone.gd" id="1_p2gcd"]
+[ext_resource type="Texture2D" uid="uid://b0h0sji7w2rew" path="res://sprites/hazards/kamen.png" id="2_dl263"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ibs2i"]
+friction = 0.04
+bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8g8u6"]
-radius = 24.0208
+radius = 16.3534
 
-[node name="Stone" type="CharacterBody2D"]
-collision_layer = 3
-collision_mask = 3
+[node name="Stone" type="RigidBody2D"]
+collision_layer = 4096
+collision_mask = 4096
+mass = 0.815
+physics_material_override = SubResource("PhysicsMaterial_ibs2i")
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 3
 script = ExtResource("1_p2gcd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.421049, 0.421049)
+modulate = Color(0.325441, 0.325441, 0.325441, 1)
+scale = Vector2(0.794943, 0.794943)
 shape = SubResource("CircleShape2D_8g8u6")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-scale = Vector2(0.284078, 0.284078)
-texture = ExtResource("1_24wby")
+position = Vector2(-1.52588e-05, 7.62939e-06)
+scale = Vector2(0.503387, 0.503387)
+texture = ExtResource("2_dl263")
+region_enabled = true
+region_rect = Rect2(256, 1477.25, 88, 80.5)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2(0.819451, 0.819451)
 
 [node name="DestroyTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 4096.0
 autostart = true
 
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]
