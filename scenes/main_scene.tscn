@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://cbwafqkp3wdkt"]
+[gd_scene load_steps=3 format=3 uid="uid://cbwafqkp3wdkt"]
+
+[ext_resource type="Texture2D" uid="uid://bhlf0ui6loxd4" path="res://sprites/Player/player placeholder.png" id="1_xua67"]
+[ext_resource type="Script" path="res://scripts/Player/PlayerWiggler.gd" id="2_iqcp5"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(159, 311)
+scale = Vector2(0.409535, 0.393617)
+texture = ExtResource("1_xua67")
+script = ExtResource("2_iqcp5")
